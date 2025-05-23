@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Oncology Ward Links</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      background-color: #f2f2f2;
+    }
+    h1 {
+      color: #004080;
+    }
+    button {
+      padding: 15px 25px;
+      font-size: 18px;
+      background-color: #004080;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0059b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Oncology Ward Links</h1>
+  <p>Click below to open all essential ward systems:</p>
+  <button onclick="openLinks()">Open Oncology Portals</button>
+
+  <script>
+    function openLinks() {
+      const urls = [
+        "https://patientrack.tst.nhs.uk/",
+        "https://eprportal.tst.nhs.uk/",
+        "https://ice.somersetft.nhs.uk/icedesktop/",
+        "https://vuepacs.somersetft.nhs.uk/portal/",
+        "https://ordercomms.tst.nhs.uk/Review/login.aspx"
+      ];
+      urls.forEach(url => window.open(url, '_blank'));
+    }
+  </script>
+
+</body>
+</html>
