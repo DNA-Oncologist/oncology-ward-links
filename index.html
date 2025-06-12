@@ -40,10 +40,10 @@
   <h1>Oncology Quick Links</h1>
   <p>Select a button to launch all relevant systems:</p>
 
-  <button onclick="openMPHWardLinks()">MPH Ward</button>
-  <button onclick="openMPHClinicLinks()">MPH Clinic</button>
-  <button onclick="openYDHWardLinks()">YDH Ward</button>
-  <button onclick="openYDHClinicLinks()">YDH Clinic</button>
+  <button onclick="openMPHWardLinks()">Open MPH Ward Portals</button>
+  <button onclick="openMPHClinicLinks()">Open MPH Clinic Portals</button>
+  <button onclick="openYDHWardLinks()">Open YDH Ward Portals</button>
+  <button onclick="openYDHClinicLinks()">Open YDH Clinic Portals</button>
 
   <div class="disclaimer">
     Developed and managed by Nabeel Sheikh, email: <a href="mailto:nabeel.sheikh@somersetft.nhs.uk">nabeel.sheikh@somersetft.nhs.uk</a>
@@ -69,8 +69,9 @@
         "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
         "https://epr.tst.nhs.uk/MAXIMS_PROD/",
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
-        "https://vuepacs.somersetft.nhs.uk/portal/",
-        "https://epro.tst.nhs.uk/Epro"
+        "https://vuepacs.somersetft.nhs.uk/portal",
+        "https://epro.tst.nhs.uk/Epro",
+        "https://www.swagcanceralliance.nhs.uk/protocols/"
       ];
       mphClinicLinks.forEach(url => window.open(url, '_blank'));
     }
@@ -80,7 +81,7 @@
       const ydhWardLinks = [
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
         "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
-        "https://vuepacs.somersetft.nhs.uk/portal/",
+        "https://vuepacs.somersetft.nhs.uk/portal",
         "https://trakcare.ydh.nhs.uk/trakcare/",
         "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx"
       ];
@@ -92,9 +93,10 @@
       const ydhClinicLinks = [
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
         "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
-        "https://vuepacs.somersetft.nhs.uk/portal/",
+        "https://vuepacs.somersetft.nhs.uk/portal",
         "https://trakcare.ydh.nhs.uk/trakcare/",
-        "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx"
+        "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx",
+        "https://www.swagcanceralliance.nhs.uk/protocols/"
       ];
       ydhClinicLinks.forEach(url => window.open(url, '_blank'));
     }
