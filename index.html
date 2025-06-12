@@ -40,35 +40,63 @@
   <h1>Oncology Quick Links</h1>
   <p>Select a button to launch all relevant systems:</p>
 
-  <button onclick="openWardLinks()">Open Ward Portals</button>
-  <button onclick="openClinicLinks()">Open Clinic Portals</button>
+  <button onclick="openMPHWardLinks()">Open MPH Ward Portals</button>
+  <button onclick="openMPHClinicLinks()">Open MPH Clinic Portals</button>
+  <button onclick="openYDHWardLinks()">Open YDH Ward Portals</button>
+  <button onclick="openYDHClinicLinks()">Open YDH Clinic Portals</button>
 
   <div class="disclaimer">
     Developed and managed by Nabeel Sheikh, email: <a href="mailto:nabeel.sheikh@somersetft.nhs.uk">nabeel.sheikh@somersetft.nhs.uk</a>
   </div>
 
   <script>
-    function openWardLinks() {
-      const wardLinks = [
+    // MPH Ward Links
+    function openMPHWardLinks() {
+      const mphWardLinks = [
         "https://patientrack.tst.nhs.uk/",
         "https://eprportal.tst.nhs.uk/",
-        "https://ice.somersetft.nhs.uk/icedesktop/",
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
         "https://vuepacs.somersetft.nhs.uk/portal/",
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
         "https://epro.tst.nhs.uk/Epro"
       ];
-      wardLinks.forEach(url => window.open(url, '_blank'));
+      mphWardLinks.forEach(url => window.open(url, '_blank'));
     }
 
-    function openClinicLinks() {
-      const clinicLinks = [
-        "https://ice.somersetft.nhs.uk/icedesktop/",
+    // MPH Clinic Links
+    function openMPHClinicLinks() {
+      const mphClinicLinks = [
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
         "https://epr.tst.nhs.uk/MAXIMS_PROD/",
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
         "https://vuepacs.somersetft.nhs.uk/portal",
         "https://epro.tst.nhs.uk/Epro"
       ];
-      clinicLinks.forEach(url => window.open(url, '_blank'));
+      mphClinicLinks.forEach(url => window.open(url, '_blank'));
+    }
+
+    // YDH Ward Links
+    function openYDHWardLinks() {
+      const ydhWardLinks = [
+        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
+        "https://vuepacs.somersetft.nhs.uk/portal",
+        "https://trakcare.ydh.nhs.uk/trakcare/",
+        "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx"
+      ];
+      ydhWardLinks.forEach(url => window.open(url, '_blank'));
+    }
+
+    // YDH Clinic Links
+    function openYDHClinicLinks() {
+      const ydhClinicLinks = [
+        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
+        "https://vuepacs.somersetft.nhs.uk/portal",
+        "https://trakcare.ydh.nhs.uk/trakcare/",
+        "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx"
+      ];
+      ydhClinicLinks.forEach(url => window.open(url, '_blank'));
     }
   </script>
 
