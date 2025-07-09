@@ -12,7 +12,23 @@
     }
     h1 {
       color: #003366;
+      margin-bottom: 20px;
+    }
+    p {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .note {
       margin-bottom: 40px;
+      font-size: 14px;
+      color: #666;
+    }
+    .section {
+      margin-top: 30px;
+    }
+    .section h2 {
+      color: #004080;
+      margin-bottom: 10px;
     }
     button {
       padding: 16px 30px;
@@ -22,7 +38,7 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      margin: 15px;
+      margin: 10px;
       box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     }
     button:hover {
@@ -39,20 +55,33 @@
 
   <h1>Oncology Quick Links</h1>
   <p>Select a button to launch all relevant systems:</p>
+  <p class="note">Note: VUE Explorer is an alternative to the standard VUE PACS viewer. It includes search functionality for orders and a different interface. Choose whichever version you prefer.</p>
 
-  <button onclick="openMPHWardLinks()">Open MPH Ward Portals</button>
-  <button onclick="openMPHClinicLinks()">Open MPH Clinic Portals</button>
-  <button onclick="openYDHWardLinks()">Open YDH Ward Portals</button>
-  <button onclick="openYDHClinicLinks()">Open YDH Clinic Portals</button>
+  <div class="section">
+    <h2>Standard VUE</h2>
+    <button onclick="openMPHWardLinks()">MPH Ward</button>
+    <button onclick="openMPHClinicLinks()">MPH Clinic</button>
+    <button onclick="openYDHWardLinks()">YDH Ward</button>
+    <button onclick="openYDHClinicLinks()">YDH Clinic</button>
+  </div>
+
+  <div class="section">
+    <h2>VUE Explorer</h2>
+    <button onclick="openMPHWardExplorerLinks()">MPH Ward</button>
+    <button onclick="openMPHClinicExplorerLinks()">MPH Clinic</button>
+    <button onclick="openYDHWardExplorerLinks()">YDH Ward</button>
+    <button onclick="openYDHClinicExplorerLinks()">YDH Clinic</button>
+  </div>
 
   <div class="disclaimer">
     Developed and managed by Nabeel Sheikh, email: <a href="mailto:nabeel.sheikh@somersetft.nhs.uk">nabeel.sheikh@somersetft.nhs.uk</a>
   </div>
 
   <script>
-    // MPH Ward Links
+    const vueExplorerLink = "https://vuepacs.somersetft.nhs.uk/archive/";
+
     function openMPHWardLinks() {
-      const mphWardLinks = [
+      const links = [
         "https://patientrack.tst.nhs.uk/",
         "https://eprportal.tst.nhs.uk/",
         "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
@@ -60,46 +89,65 @@
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
         "https://epro.tst.nhs.uk/Epro"
       ];
-      mphWardLinks.forEach(url => window.open(url, '_blank'));
+      links.forEach(url => window.open(url, '_blank'));
     }
 
-    // MPH Clinic Links
     function openMPHClinicLinks() {
-      const mphClinicLinks = [
+      const links = [
         "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
         "https://epr.tst.nhs.uk/MAXIMS_PROD/",
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
         "https://vuepacs.somersetft.nhs.uk/portal",
         "https://epro.tst.nhs.uk/Epro",
-        "https://www.swagcanceralliance.nhs.uk/protocols/"
+        "https://www.swagcanceralliance.nhs.uk/protocols/",
+        "https://www.cancerresearchuk.org/health-professional/treatment-and-other-post-diagnosis-issues/consent-forms-for-sact-systemic-anti-cancer-therapy"
       ];
-      mphClinicLinks.forEach(url => window.open(url, '_blank'));
+      links.forEach(url => window.open(url, '_blank'));
     }
 
-    // YDH Ward Links
     function openYDHWardLinks() {
-      const ydhWardLinks = [
+      const links = [
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
         "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
         "https://vuepacs.somersetft.nhs.uk/portal",
         "https://trakcare.ydh.nhs.uk/trakcare/",
         "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx"
       ];
-      ydhWardLinks.forEach(url => window.open(url, '_blank'));
+      links.forEach(url => window.open(url, '_blank'));
     }
 
-    // YDH Clinic Links
     function openYDHClinicLinks() {
-      const ydhClinicLinks = [
+      const links = [
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
         "https://epro.tst.nhs.uk/Epro_25_01_299_0/ui?noSplash=true&pageMode=normal",
         "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
         "https://vuepacs.somersetft.nhs.uk/portal",
         "https://trakcare.ydh.nhs.uk/trakcare/",
         "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx",
-        "https://www.swagcanceralliance.nhs.uk/protocols/"
+        "https://www.swagcanceralliance.nhs.uk/protocols/",
+        "https://www.cancerresearchuk.org/health-professional/treatment-and-other-post-diagnosis-issues/consent-forms-for-sact-systemic-anti-cancer-therapy"
       ];
-      ydhClinicLinks.forEach(url => window.open(url, '_blank'));
+      links.forEach(url => window.open(url, '_blank'));
+    }
+
+    function openMPHWardExplorerLinks() {
+      openMPHWardLinks();
+      window.open(vueExplorerLink, '_blank');
+    }
+
+    function openMPHClinicExplorerLinks() {
+      openMPHClinicLinks();
+      window.open(vueExplorerLink, '_blank');
+    }
+
+    function openYDHWardExplorerLinks() {
+      openYDHWardLinks();
+      window.open(vueExplorerLink, '_blank');
+    }
+
+    function openYDHClinicExplorerLinks() {
+      openYDHClinicLinks();
+      window.open(vueExplorerLink, '_blank');
     }
   </script>
 
