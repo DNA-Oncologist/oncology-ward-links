@@ -78,14 +78,15 @@
   </div>
 
   <script>
-    const vueExplorerLink = "https://vuepacs.somersetft.nhs.uk/archive/";
+    const vueMotionLink = "https://vuepacs.somersetft.nhs.uk/portal/WebLogin.aspx?ReturnUrl=%2fportal%2f";
+    const vueExplorerLink = "https://vuepacs.somersetft.nhs.uk/archive/Login.aspx?ReturnUrl=%2farchive%2f";
 
     function openMPHWardLinks() {
       const links = [
         "https://patientrack.tst.nhs.uk/",
         "https://eprportal.tst.nhs.uk/",
         "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
-        "https://vuepacs.somersetft.nhs.uk/portal/",
+        vueMotionLink,
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
         "https://epro.tst.nhs.uk/Epro"
       ];
@@ -97,7 +98,7 @@
         "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
         "https://epr.tst.nhs.uk/MAXIMS_PROD/",
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
-        "https://vuepacs.somersetft.nhs.uk/portal",
+        vueMotionLink,
         "https://epro.tst.nhs.uk/Epro",
         "https://www.swagcanceralliance.nhs.uk/protocols/",
         "https://www.cancerresearchuk.org/health-professional/treatment-and-other-post-diagnosis-issues/consent-forms-for-sact-systemic-anti-cancer-therapy"
@@ -109,7 +110,7 @@
       const links = [
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
         "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
-        "https://vuepacs.somersetft.nhs.uk/portal",
+        vueMotionLink,
         "https://trakcare.ydh.nhs.uk/trakcare/",
         "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx"
       ];
@@ -121,7 +122,7 @@
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
         "https://epro.tst.nhs.uk/Epro_25_01_299_0/ui?noSplash=true&pageMode=normal",
         "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
-        "https://vuepacs.somersetft.nhs.uk/portal",
+        vueMotionLink,
         "https://trakcare.ydh.nhs.uk/trakcare/",
         "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx",
         "https://www.swagcanceralliance.nhs.uk/protocols/",
@@ -131,23 +132,53 @@
     }
 
     function openMPHWardExplorerLinks() {
-      openMPHWardLinks();
-      window.open(vueExplorerLink, '_blank');
+      const links = [
+        "https://patientrack.tst.nhs.uk/",
+        "https://eprportal.tst.nhs.uk/",
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
+        vueExplorerLink,
+        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
+        "https://epro.tst.nhs.uk/Epro"
+      ];
+      links.forEach(url => window.open(url, '_blank'));
     }
 
     function openMPHClinicExplorerLinks() {
-      openMPHClinicLinks();
-      window.open(vueExplorerLink, '_blank');
+      const links = [
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
+        "https://epr.tst.nhs.uk/MAXIMS_PROD/",
+        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
+        vueExplorerLink,
+        "https://epro.tst.nhs.uk/Epro",
+        "https://www.swagcanceralliance.nhs.uk/protocols/",
+        "https://www.cancerresearchuk.org/health-professional/treatment-and-other-post-diagnosis-issues/consent-forms-for-sact-systemic-anti-cancer-therapy"
+      ];
+      links.forEach(url => window.open(url, '_blank'));
     }
 
     function openYDHWardExplorerLinks() {
-      openYDHWardLinks();
-      window.open(vueExplorerLink, '_blank');
+      const links = [
+        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
+        vueExplorerLink,
+        "https://trakcare.ydh.nhs.uk/trakcare/",
+        "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx"
+      ];
+      links.forEach(url => window.open(url, '_blank'));
     }
 
     function openYDHClinicExplorerLinks() {
-      openYDHClinicLinks();
-      window.open(vueExplorerLink, '_blank');
+      const links = [
+        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
+        "https://epro.tst.nhs.uk/Epro_25_01_299_0/ui?noSplash=true&pageMode=normal",
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
+        vueExplorerLink,
+        "https://trakcare.ydh.nhs.uk/trakcare/",
+        "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx",
+        "https://www.swagcanceralliance.nhs.uk/protocols/",
+        "https://www.cancerresearchuk.org/health-professional/treatment-and-other-post-diagnosis-issues/consent-forms-for-sact-systemic-anti-cancer-therapy"
+      ];
+      links.forEach(url => window.open(url, '_blank'));
     }
   </script>
 
