@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Oncology Quick Links</title>
+  <title>Oncology Quick Links v5</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -71,6 +71,11 @@
     <button onclick="openMPHClinicExplorerLinks()">MPH Clinic</button>
     <button onclick="openYDHWardExplorerLinks()">YDH Ward</button>
     <button onclick="openYDHClinicExplorerLinks()">YDH Clinic</button>
+  </div>
+
+  <div class="section">
+    <h2>OSST Team</h2>
+    <button onclick="openOSSTLinks()">OSST Quick Links</button>
   </div>
 
   <div class="disclaimer">
@@ -180,7 +185,7 @@
       ];
       links.forEach(url => window.open(url, '_blank'));
     }
-  </script>
 
-</body>
-</html>
+    function openOSSTLinks() {
+      const links = [
+       
