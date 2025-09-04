@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Oncology Quick Links v5</title>
+  <title>Oncology Quick Links</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -49,13 +49,18 @@
       font-size: 14px;
       color: #555;
     }
+    .osst-section {
+      margin-top: 50px;
+      border-top: 2px solid #ccc;
+      padding-top: 30px;
+    }
   </style>
 </head>
 <body>
 
   <h1>Oncology Quick Links</h1>
   <p>Select a button to launch all relevant systems:</p>
-  <p class="note">Note: VUE Explorer is an alternative to the standard VUE PACS viewer. It includes search functionality for orders and a different interface. Choose whichever version you prefer.</p>
+  <p class="note">VUE Explorer is an alternative to the standard VUE PACS viewer. It includes search functionality for orders and a different interface. Choose whichever version you prefer.</p>
 
   <div class="section">
     <h2>Standard VUE</h2>
@@ -73,9 +78,9 @@
     <button onclick="openYDHClinicExplorerLinks()">YDH Clinic</button>
   </div>
 
-  <div class="section">
+  <div class="osst-section">
     <h2>OSST Team</h2>
-    <button onclick="openOSSTLinks()">OSST Quick Links</button>
+    <button onclick="openOSSTLinks()">Open OSST Portals</button>
   </div>
 
   <div class="disclaimer">
@@ -86,6 +91,7 @@
     const vueMotionLink = "https://vuepacs.somersetft.nhs.uk/portal/WebLogin.aspx?ReturnUrl=%2fportal%2f";
     const vueExplorerLink = "https://vuepacs.somersetft.nhs.uk/archive/Login.aspx?ReturnUrl=%2farchive%2f";
 
+    // MPH Ward & Clinic - Standard VUE
     function openMPHWardLinks() {
       const links = [
         "https://patientrack.tst.nhs.uk/",
@@ -111,6 +117,7 @@
       links.forEach(url => window.open(url, '_blank'));
     }
 
+    // YDH Ward & Clinic - Standard VUE
     function openYDHWardLinks() {
       const links = [
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
@@ -136,6 +143,7 @@
       links.forEach(url => window.open(url, '_blank'));
     }
 
+    // MPH & YDH - VUE Explorer
     function openMPHWardExplorerLinks() {
       const links = [
         "https://patientrack.tst.nhs.uk/",
@@ -186,6 +194,19 @@
       links.forEach(url => window.open(url, '_blank'));
     }
 
+    // OSST Team
     function openOSSTLinks() {
       const links = [
-       
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx",
+        "https://vuepacs.somersetft.nhs.uk/portal/WebLogin.aspx?ReturnUrl=%2fPortal%2f",
+        "https://sso.tst.nhs.uk/auth/realms/SIDER/protocol/openid-connect/auth?client_id=sider-prd-web&redirect_uri=https%3A%2F%2Fpyrusapps.blackpear.com%2Fhome%2Fbp-signin-callback.html&response_type=code&scope=openid%20profile&state=275dd7ccd2b54d3a8a24720b2d68c689&code_challenge=x5LqNU5VXj8usgCzutaa3o539FUzcQ_wYs8Hi2CG4wg&code_challenge_method=S256&response_mode=query",
+        "https://epr.tst.nhs.uk/MAXIMS_PROD/",
+        "https://epro.tst.nhs.uk/Epro"
+      ];
+      links.forEach(url => window.open(url, '_blank'));
+    }
+
+  </script>
+
+</body>
+</html>
