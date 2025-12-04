@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Oncology Quick Links</title>
+  <title>Oncology Multi Link Launcher</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -22,12 +22,13 @@
 
     .sidebar {
       flex: 1;
-      min-width: 260px;
+      min-width: 220px;
       background: #ffffff;
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      text-align: left;
+      font-size: 14px;
+      color: #333;
     }
 
     .sidebar h2 {
@@ -38,7 +39,7 @@
 
     .sidebar h3 {
       font-size: 16px;
-      margin-top: 18px;
+      margin-top: 16px;
       margin-bottom: 6px;
       color: #005a9c;
     }
@@ -46,8 +47,6 @@
     .sidebar ul {
       margin: 0 0 10px 18px;
       padding: 0;
-      font-size: 14px;
-      color: #333;
     }
 
     .sidebar li {
@@ -67,7 +66,13 @@
 
     h1 {
       color: #003366;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
       margin-bottom: 20px;
+      color: #555;
+      font-size: 14px;
     }
 
     p {
@@ -76,13 +81,13 @@
     }
 
     .note {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       font-size: 14px;
       color: #666;
     }
 
     .section {
-      margin-top: 30px;
+      margin-top: 25px;
     }
 
     .section h2 {
@@ -107,15 +112,15 @@
     }
 
     .disclaimer {
-      margin-top: 40px;
+      margin-top: 35px;
       font-size: 14px;
       color: #555;
     }
 
     .osst-section {
-      margin-top: 50px;
+      margin-top: 40px;
       border-top: 2px solid #ccc;
-      padding-top: 30px;
+      padding-top: 25px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -134,13 +139,10 @@
     /* Mobile tweaks */
     @media (max-width: 900px) {
       .container {
-        flex-direction: column-reverse;
+        flex-direction: column;
       }
       .main-content {
-        text-align: center;
-      }
-      .sidebar {
-        text-align: left;
+        order: -1; /* show launcher first on small screens */
       }
     }
   </style>
@@ -149,7 +151,7 @@
 
   <div class="container">
 
-    <!-- LEFT SIDEBAR: IT tips + news -->
+    <!-- LEFT SIDEBAR: IT tips -->
     <aside class="sidebar">
       <h2>IT Tips & Tricks – This Month</h2>
 
@@ -162,25 +164,17 @@
         <li><strong>Snipping Tool:</strong> Windows Key + Shift + S</li>
       </ul>
 
-      <h3>Workshops & Updates</h3>
-      <ul>
-        <li><strong>Next AI in Oncology Workshop</strong><br>
-          Coming mid-January 2026 – details to follow.  
-          Includes hands-on demos, clinical examples, and real workflows.
-        </li>
-        <li><strong>Digital Help Clinic</strong><br>
-          Quick IT questions or shortcut tips? Email
-          <a href="mailto:nabeel.sheikh@somersetft.nhs.uk">Nabeel</a>.
-        </li>
-      </ul>
-
       <small>Last updated: Dec 2025</small>
     </aside>
 
-    <!-- MAIN CONTENT: buttons / launchers -->
+    <!-- MIDDLE: main launcher -->
     <main class="main-content">
-      <h1>Oncology Quick Links</h1>
-      <p>Select a button to launch all relevant systems:</p>
+      <h1>Oncology Multi Link Launcher</h1>
+      <div class="tagline">
+        One-click access to core oncology systems across MPH and YDH.
+      </div>
+
+      <p>Select a button to launch all relevant systems for that setting:</p>
       <p class="note">
         VUE Explorer is an alternative to the standard VUE PACS viewer. It includes search functionality for orders
         and a different interface. Choose whichever version you prefer.
@@ -219,6 +213,23 @@
         <a href="mailto:nabeel.sheikh@somersetft.nhs.uk">nabeel.sheikh@somersetft.nhs.uk</a>
       </div>
     </main>
+
+    <!-- RIGHT SIDEBAR: Workshops & updates -->
+    <aside class="sidebar">
+      <h2>Workshops & Updates</h2>
+      <ul>
+        <li>
+          <strong>Next AI in Oncology Workshop</strong><br>
+          Coming mid-January 2026 – details to follow.<br>
+          Includes hands-on demos, clinical examples, and real workflows.
+        </li>
+        <li>
+          <strong>Digital Help Clinic</strong><br>
+          Quick IT questions or shortcut tips?<br>
+          Email <a href="mailto:nabeel.sheikh@somersetft.nhs.uk">Nabeel</a>.
+        </li>
+      </ul>
+    </aside>
 
   </div>
 
