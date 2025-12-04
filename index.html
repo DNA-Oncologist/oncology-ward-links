@@ -6,30 +6,90 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 60px 20px;
+      padding: 40px 20px;
       background-color: #f4f6f9;
     }
+
+    /* Layout */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .sidebar {
+      flex: 1;
+      min-width: 260px;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      text-align: left;
+    }
+
+    .sidebar h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #004080;
+    }
+
+    .sidebar h3 {
+      font-size: 16px;
+      margin-top: 18px;
+      margin-bottom: 6px;
+      color: #005a9c;
+    }
+
+    .sidebar ul {
+      margin: 0 0 10px 18px;
+      padding: 0;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .sidebar li {
+      margin-bottom: 6px;
+    }
+
+    .sidebar small {
+      font-size: 12px;
+      color: #777;
+    }
+
+    .main-content {
+      flex: 2;
+      min-width: 320px;
+      text-align: center;
+    }
+
     h1 {
       color: #003366;
       margin-bottom: 20px;
     }
+
     p {
       margin-bottom: 20px;
       color: #333;
     }
+
     .note {
       margin-bottom: 40px;
       font-size: 14px;
       color: #666;
     }
+
     .section {
       margin-top: 30px;
     }
+
     .section h2 {
       color: #004080;
       margin-bottom: 10px;
     }
+
     button {
       padding: 16px 30px;
       font-size: 18px;
@@ -41,59 +101,125 @@
       margin: 10px;
       box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     }
+
     button:hover {
       background-color: #007acc;
     }
+
     .disclaimer {
-      margin-top: 60px;
+      margin-top: 40px;
       font-size: 14px;
       color: #555;
     }
+
     .osst-section {
       margin-top: 50px;
       border-top: 2px solid #ccc;
       padding-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .team-block {
+      min-width: 220px;
+    }
+
+    .team-block h2 {
+      color: #004080;
+      margin-bottom: 10px;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column-reverse;
+      }
+      .main-content {
+        text-align: center;
+      }
+      .sidebar {
+        text-align: left;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>Oncology Quick Links</h1>
-  <p>Select a button to launch all relevant systems:</p>
-  <p class="note">
-    VUE Explorer is an alternative to the standard VUE PACS viewer. It includes search functionality for orders
-    and a different interface. Choose whichever version you prefer.
-  </p>
+  <div class="container">
 
-  <div class="section">
-    <h2>Standard VUE</h2>
-    <button onclick="openMPHWardLinks()">MPH Ward</button>
-    <button onclick="openMPHClinicLinks()">MPH Clinic</button>
-    <button onclick="openYDHWardLinks()">YDH Ward</button>
-    <button onclick="openYDHClinicLinks()">YDH Clinic</button>
-  </div>
+    <!-- LEFT SIDEBAR: IT tips + news -->
+    <aside class="sidebar">
+      <h2>IT Tips & Tricks – This Month</h2>
 
-  <div class="section">
-    <h2>VUE Explorer</h2>
-    <button onclick="openMPHWardExplorerLinks()">MPH Ward</button>
-    <button onclick="openMPHClinicExplorerLinks()">MPH Clinic</button>
-    <button onclick="openYDHWardExplorerLinks()">YDH Ward</button>
-    <button onclick="openYDHClinicExplorerLinks()">YDH Clinic</button>
-  </div>
+      <h3>Keyboard Shortcuts</h3>
+      <ul>
+        <li><strong>Copy:</strong> Ctrl + C</li>
+        <li><strong>Paste:</strong> Ctrl + V</li>
+        <li><strong>Select All:</strong> Ctrl + A</li>
+        <li><strong>Paste without formatting:</strong> Ctrl + Shift + V</li>
+        <li><strong>Snipping Tool:</strong> Windows Key + Shift + S</li>
+      </ul>
 
-  <div class="osst-section">
-    <h2>OSST Team</h2>
-    <button onclick="openOSSTLinks()">Open OSST Portals</button>
-  </div>
+      <h3>Workshops & Updates</h3>
+      <ul>
+        <li><strong>Next AI in Oncology Workshop</strong><br>
+          Coming mid-January 2026 – details to follow.  
+          Includes hands-on demos, clinical examples, and real workflows.
+        </li>
+        <li><strong>Digital Help Clinic</strong><br>
+          Quick IT questions or shortcut tips? Email
+          <a href="mailto:nabeel.sheikh@somersetft.nhs.uk">Nabeel</a>.
+        </li>
+      </ul>
 
-  <div class="section">
-    <h2>Care of the Elderly Team (COOT)</h2>
-    <button onclick="openCOOTLinks()">Open COOT Portals</button>
-  </div>
+      <small>Last updated: Dec 2025</small>
+    </aside>
 
-  <div class="disclaimer">
-    Developed and managed by Nabeel Sheikh, email:
-    <a href="mailto:nabeel.sheikh@somersetft.nhs.uk">nabeel.sheikh@somersetft.nhs.uk</a>
+    <!-- MAIN CONTENT: buttons / launchers -->
+    <main class="main-content">
+      <h1>Oncology Quick Links</h1>
+      <p>Select a button to launch all relevant systems:</p>
+      <p class="note">
+        VUE Explorer is an alternative to the standard VUE PACS viewer. It includes search functionality for orders
+        and a different interface. Choose whichever version you prefer.
+      </p>
+
+      <div class="section">
+        <h2>Standard VUE</h2>
+        <button onclick="openMPHWardLinks()">MPH Ward</button>
+        <button onclick="openMPHClinicLinks()">MPH Clinic</button>
+        <button onclick="openYDHWardLinks()">YDH Ward</button>
+        <button onclick="openYDHClinicLinks()">YDH Clinic</button>
+      </div>
+
+      <div class="section">
+        <h2>VUE Explorer</h2>
+        <button onclick="openMPHWardExplorerLinks()">MPH Ward</button>
+        <button onclick="openMPHClinicExplorerLinks()">MPH Clinic</button>
+        <button onclick="openYDHWardExplorerLinks()">YDH Ward</button>
+        <button onclick="openYDHClinicExplorerLinks()">YDH Clinic</button>
+      </div>
+
+      <!-- OSST + COOT side by side -->
+      <div class="osst-section">
+        <div class="team-block">
+          <h2>OSST Team</h2>
+          <button onclick="openOSSTLinks()">Open OSST Portals</button>
+        </div>
+        <div class="team-block">
+          <h2>Care of the Elderly Team (COOT)</h2>
+          <button onclick="openCOOTLinks()">Open COOT Portals</button>
+        </div>
+      </div>
+
+      <div class="disclaimer">
+        Developed and managed by Nabeel Sheikh, email:
+        <a href="mailto:nabeel.sheikh@somersetft.nhs.uk">nabeel.sheikh@somersetft.nhs.uk</a>
+      </div>
+    </main>
+
   </div>
 
   <script>
@@ -222,7 +348,7 @@
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
         // ICE
         "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
-        // EPMA 
+        // EPMA (currently using EPR portal)
         "https://eprportal.tst.nhs.uk/",
         // SIDER (same as OSST)
         "https://sso.tst.nhs.uk/auth/realms/SIDER/protocol/openid-connect/auth?client_id=sider-prd-web&redirect_uri=https%3A%2F%2Fpyrusapps.blackpear.com%2Fhome%2Fbp-signin-callback.html&response_type=code&scope=openid%20profile&state=275dd7ccd2b54d3a8a24720b2d68c689&code_challenge=x5LqNU5VXj8usgCzutaa3o539FUzcQ_wYs8Hi2CG4wg&code_challenge_method=S256&response_mode=query",
@@ -240,7 +366,6 @@
 
       links.forEach(url => window.open(url, '_blank'));
     }
-
   </script>
 
 </body>
