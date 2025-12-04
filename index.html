@@ -6,105 +6,108 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 40px 20px;
+      padding: 20px 10px;
       background-color: #f4f6f9;
     }
 
     /* Layout */
     .container {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
       display: flex;
-      gap: 30px;
+      gap: 20px;
       align-items: flex-start;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
 
     .sidebar {
-      flex: 1;
-      min-width: 220px;
+      flex: 0 0 230px;
       background: #ffffff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      font-size: 14px;
+      border-radius: 8px;
+      padding: 14px 16px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+      font-size: 13px;
       color: #333;
     }
 
     .sidebar h2 {
-      font-size: 18px;
-      margin-bottom: 10px;
+      font-size: 16px;
+      margin-bottom: 8px;
       color: #004080;
     }
 
     .sidebar h3 {
-      font-size: 16px;
-      margin-top: 16px;
-      margin-bottom: 6px;
+      font-size: 14px;
+      margin-top: 10px;
+      margin-bottom: 4px;
       color: #005a9c;
     }
 
     .sidebar ul {
-      margin: 0 0 10px 18px;
+      margin: 0 0 6px 16px;
       padding: 0;
     }
 
     .sidebar li {
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .sidebar small {
-      font-size: 12px;
+      font-size: 11px;
       color: #777;
     }
 
     .main-content {
-      flex: 2;
-      min-width: 320px;
+      flex: 1 1 auto;
+      min-width: 0;
       text-align: center;
     }
 
     h1 {
       color: #003366;
-      margin-bottom: 10px;
+      margin: 0 0 4px;
+      font-size: 22px;
     }
 
     .tagline {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       color: #555;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     p {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       color: #333;
+      font-size: 13px;
     }
 
     .note {
-      margin-bottom: 30px;
-      font-size: 14px;
+      margin-bottom: 16px;
+      font-size: 12px;
       color: #666;
     }
 
     .section {
-      margin-top: 25px;
+      margin-top: 16px;
     }
 
     .section h2 {
       color: #004080;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
+      font-size: 16px;
     }
 
     button {
-      padding: 16px 30px;
-      font-size: 18px;
+      padding: 10px 18px;
+      font-size: 15px;
       background-color: #005a9c;
       color: white;
       border: none;
-      border-radius: 10px;
+      border-radius: 8px;
       cursor: pointer;
-      margin: 10px;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+      margin: 6px;
+      box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+      white-space: nowrap;
     }
 
     button:hover {
@@ -112,37 +115,41 @@
     }
 
     .disclaimer {
-      margin-top: 35px;
-      font-size: 14px;
+      margin-top: 16px;
+      font-size: 12px;
       color: #555;
     }
 
     .osst-section {
-      margin-top: 40px;
-      border-top: 2px solid #ccc;
-      padding-top: 25px;
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      padding-top: 14px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 40px;
+      gap: 20px;
     }
 
     .team-block {
-      min-width: 220px;
+      min-width: 190px;
     }
 
     .team-block h2 {
       color: #004080;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
+      font-size: 15px;
     }
 
-    /* Mobile tweaks */
-    @media (max-width: 900px) {
+    /* Smaller screens: allow wrapping but still compact */
+    @media (max-width: 1000px) {
       .container {
-        flex-direction: column;
+        flex-wrap: wrap;
       }
       .main-content {
-        order: -1; /* show launcher first on small screens */
+        order: -1; /* launcher first */
+      }
+      .sidebar {
+        flex: 1 1 100%;
       }
     }
   </style>
@@ -151,7 +158,7 @@
 
   <div class="container">
 
-    <!-- LEFT SIDEBAR: IT tips -->
+    <!-- LEFT: IT tips -->
     <aside class="sidebar">
       <h2>IT Tips & Tricks – This Month</h2>
 
@@ -161,7 +168,7 @@
         <li><strong>Paste:</strong> Ctrl + V</li>
         <li><strong>Select All:</strong> Ctrl + A</li>
         <li><strong>Paste without formatting:</strong> Ctrl + Shift + V</li>
-        <li><strong>Snipping Tool:</strong> Windows Key + Shift + S</li>
+        <li><strong>Snipping Tool:</strong> Windows + Shift + S</li>
       </ul>
 
       <small>Last updated: Dec 2025</small>
@@ -176,8 +183,7 @@
 
       <p>Select a button to launch all relevant systems for that setting:</p>
       <p class="note">
-        VUE Explorer is an alternative to the standard VUE PACS viewer. It includes search functionality for orders
-        and a different interface. Choose whichever version you prefer.
+        VUE Explorer is an alternative to the standard VUE PACS viewer, with order search and a different interface.
       </p>
 
       <div class="section">
@@ -203,25 +209,25 @@
           <button onclick="openOSSTLinks()">Open OSST Portals</button>
         </div>
         <div class="team-block">
-          <h2>Care of the Elderly Team (COOT)</h2>
+          <h2>Care of the Elderly (COOT)</h2>
           <button onclick="openCOOTLinks()">Open COOT Portals</button>
         </div>
       </div>
 
       <div class="disclaimer">
-        Developed and managed by Nabeel Sheikh, email:
+        Developed and managed by Nabeel Sheikh,
         <a href="mailto:nabeel.sheikh@somersetft.nhs.uk">nabeel.sheikh@somersetft.nhs.uk</a>
       </div>
     </main>
 
-    <!-- RIGHT SIDEBAR: Workshops & updates -->
+    <!-- RIGHT: Workshops & updates -->
     <aside class="sidebar">
       <h2>Workshops & Updates</h2>
       <ul>
         <li>
           <strong>Next AI in Oncology Workshop</strong><br>
-          Coming mid-January 2026 – details to follow.<br>
-          Includes hands-on demos, clinical examples, and real workflows.
+          Mid-January 2026 – details to follow.<br>
+          Hands-on demos, clinical examples, and real workflows.
         </li>
         <li>
           <strong>Digital Help Clinic</strong><br>
