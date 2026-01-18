@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <title>Oncology Multi Link Launcher</title>
   <style>
-    html, body {
-      height: 100%;
-    }
+    html, body { height: 100%; }
 
     body {
       font-family: Arial, sans-serif;
@@ -94,9 +92,7 @@
       color: #666;
     }
 
-    .section {
-      margin-top: 18px;
-    }
+    .section { margin-top: 18px; }
 
     .section h2 {
       color: #004080;
@@ -117,9 +113,7 @@
       white-space: nowrap;
     }
 
-    button:hover {
-      background-color: #007acc;
-    }
+    button:hover { background-color: #007acc; }
 
     .disclaimer {
       margin-top: 18px;
@@ -137,9 +131,7 @@
       gap: 22px;
     }
 
-    .team-block {
-      min-width: 200px;
-    }
+    .team-block { min-width: 200px; }
 
     .team-block h2 {
       color: #004080;
@@ -152,134 +144,262 @@
         flex-wrap: wrap;
         max-width: 100%;
       }
-      .main-content {
-        order: -1;
-      }
-      .sidebar {
-        flex: 1 1 100%;
-      }
+      .main-content { order: -1; }
+      .sidebar { flex: 1 1 100%; }
     }
   </style>
 </head>
 <body>
 
-<div class="container">
+  <div class="container">
 
-  <!-- LEFT SIDEBAR -->
-  <aside class="sidebar">
-    <h2>IT Tips & Tricks – This Month</h2>
+    <!-- LEFT: IT tips (UPDATED - Month 2) -->
+    <aside class="sidebar">
+      <h2>IT Tips & Tricks – This Month</h2>
 
-    <h3>Work Smarter</h3>
-    <ul>
-      <li><strong>Alt + Tab</strong> – switch quickly between ICE, EPR & PACS</li>
-      <li><strong>Ctrl + Click</strong> – open links in new tabs</li>
-      <li><strong>Ctrl + Shift + V</strong> – paste text without formatting</li>
-    </ul>
+      <h3>Work Smarter</h3>
+      <ul>
+        <li><strong>Alt + Tab:</strong> switch quickly between ICE, EPR &amp; PACS</li>
+        <li><strong>Ctrl + Click:</strong> open links in new tabs</li>
+        <li><strong>Ctrl + Shift + V:</strong> paste text without formatting</li>
+      </ul>
 
-    <h3>Screenshots & MDTs</h3>
-    <ul>
-      <li><strong>Win + Shift + S</strong> – fast screenshots to clipboard</li>
-      <li>Paste directly into Outlook or Teams</li>
-    </ul>
+      <h3>Screenshots &amp; MDTs</h3>
+      <ul>
+        <li><strong>Win + Shift + S:</strong> fast screenshots to clipboard</li>
+        <li>Paste directly into Outlook or Teams</li>
+      </ul>
 
-    <h3>Digital Safety</h3>
-    <ul>
-      <li>Double-check patient name before actions</li>
-      <li><strong>Win + L</strong> – lock screen when stepping away</li>
-    </ul>
+      <h3>Digital Safety</h3>
+      <ul>
+        <li>Double-check patient name before actions</li>
+        <li><strong>Win + L:</strong> lock screen when stepping away</li>
+      </ul>
 
-    <h3>Did You Know?</h3>
-    <ul>
-      <li>Browsers remember last sessions — close tabs at end of shift</li>
-      <li>Fewer tabs = faster systems & fewer crashes</li>
-    </ul>
+      <h3>Did You Know?</h3>
+      <ul>
+        <li>Browsers remember last sessions — close tabs at end of shift</li>
+        <li>Fewer tabs = faster systems &amp; fewer crashes</li>
+      </ul>
 
-    <small>Last updated: Jan 2026</small>
-  </aside>
+      <small>Last updated: Jan 2026</small>
+    </aside>
 
-  <!-- MAIN CONTENT -->
-  <main class="main-content">
-    <h1>Oncology Multi Link Launcher</h1>
-    <div class="tagline">
-      One-click access to core oncology systems across MPH and YDH.
-    </div>
-
-    <p>Select a button to launch all relevant systems for that setting:</p>
-    <p class="note">
-      VUE Explorer is an alternative to the standard VUE PACS viewer, with order search and a different interface.
-    </p>
-
-    <div class="section">
-      <h2>Standard VUE</h2>
-      <button onclick="openMPHWardLinks()">MPH Ward</button>
-      <button onclick="openMPHClinicLinks()">MPH Clinic</button>
-      <button onclick="openYDHWardLinks()">YDH Ward</button>
-      <button onclick="openYDHClinicLinks()">YDH Clinic</button>
-    </div>
-
-    <div class="section">
-      <h2>VUE Explorer</h2>
-      <button onclick="openMPHWardExplorerLinks()">MPH Ward</button>
-      <button onclick="openMPHClinicExplorerLinks()">MPH Clinic</button>
-      <button onclick="openYDHWardExplorerLinks()">YDH Ward</button>
-      <button onclick="openYDHClinicExplorerLinks()">YDH Clinic</button>
-    </div>
-
-    <div class="osst-section">
-      <div class="team-block">
-        <h2>OSST Team</h2>
-        <button onclick="openOSSTLinks()">Open OSST Portals</button>
+    <!-- MIDDLE: main launcher -->
+    <main class="main-content">
+      <h1>Oncology Multi Link Launcher</h1>
+      <div class="tagline">
+        One-click access to core oncology systems across MPH and YDH.
       </div>
-      <div class="team-block">
-        <h2>Care of the Elderly (COOT)</h2>
-        <button onclick="openCOOTLinks()">Open COOT Portals</button>
+
+      <p>Select a button to launch all relevant systems for that setting:</p>
+      <p class="note">
+        VUE Explorer is an alternative to the standard VUE PACS viewer, with order search and a different interface.
+      </p>
+
+      <div class="section">
+        <h2>Standard VUE</h2>
+        <button onclick="openMPHWardLinks()">MPH Ward</button>
+        <button onclick="openMPHClinicLinks()">MPH Clinic</button>
+        <button onclick="openYDHWardLinks()">YDH Ward</button>
+        <button onclick="openYDHClinicLinks()">YDH Clinic</button>
       </div>
-    </div>
 
-    <div class="disclaimer">
-      Developed and managed by Nabeel Sheikh,
-      <a href="mailto:nabeel.sheikh@somersetft.nhs.uk">nabeel.sheikh@somersetft.nhs.uk</a>
-    </div>
-  </main>
+      <div class="section">
+        <h2>VUE Explorer</h2>
+        <button onclick="openMPHWardExplorerLinks()">MPH Ward</button>
+        <button onclick="openMPHClinicExplorerLinks()">MPH Clinic</button>
+        <button onclick="openYDHWardExplorerLinks()">YDH Ward</button>
+        <button onclick="openYDHClinicExplorerLinks()">YDH Clinic</button>
+      </div>
 
-  <!-- RIGHT SIDEBAR -->
-  <aside class="sidebar">
-    <h2>Updates & Support</h2>
+      <div class="osst-section">
+        <div class="team-block">
+          <h2>OSST Team</h2>
+          <button onclick="openOSSTLinks()">Open OSST Portals</button>
+        </div>
+        <div class="team-block">
+          <h2>Care of the Elderly (COOT)</h2>
+          <button onclick="openCOOTLinks()">Open COOT Portals</button>
+        </div>
+      </div>
 
-    <h3>Feature Spotlight</h3>
-    <ul>
-      <li>
-        <strong>VUE Explorer</strong><br>
-        Alternative PACS viewer with order-based search and cleaner layout.<br>
-        Useful for MDT prep and ward reviews.
-      </li>
-    </ul>
+      <div class="disclaimer">
+        Developed and managed by Nabeel Sheikh,
+        <a href="mailto:nabeel.sheikh@somersetft.nhs.uk">nabeel.sheikh@somersetft.nhs.uk</a>
+      </div>
+    </main>
 
-    <h3>Digital Support</h3>
-    <ul>
-      <li>ICE & EPR navigation tips</li>
-      <li>Workflow shortcuts</li>
-      <li>Reducing digital friction in clinic</li>
-    </ul>
+    <!-- RIGHT: Workshops & updates (UPDATED - Month 2) -->
+    <aside class="sidebar">
+      <h2>Updates &amp; Support</h2>
 
-    <p>
-      📧 <a href="mailto:nabeel.sheikh@somersetft.nhs.uk">nabeel.sheikh@somersetft.nhs.uk</a>
-    </p>
+      <h3>Feature Spotlight</h3>
+      <ul>
+        <li>
+          <strong>VUE Explorer</strong><br>
+          Alternative PACS viewer with order-based search and cleaner layout.<br>
+          Useful for MDT prep and ward reviews.
+        </li>
+      </ul>
 
-    <h3>Feedback Welcome</h3>
-    <ul>
-      <li>Missing a system?</li>
-      <li>Button not useful?</li>
-      <li>Ideas to improve this page?</li>
-    </ul>
-  </aside>
+      <h3>Digital Support</h3>
+      <ul>
+        <li>ICE &amp; EPR navigation tips</li>
+        <li>Workflow shortcuts</li>
+        <li>Reducing digital friction in clinic</li>
+      </ul>
 
-</div>
+      <p style="margin: 8px 0 0;">
+        📧 <a href="mailto:nabeel.sheikh@somersetft.nhs.uk">nabeel.sheikh@somersetft.nhs.uk</a>
+      </p>
 
-<!-- YOUR EXISTING SCRIPT BLOCK REMAINS UNCHANGED -->
-<script>
-  /* no changes made */
-</script>
+      <h3>Feedback Welcome</h3>
+      <ul>
+        <li>Missing a system?</li>
+        <li>Button not useful?</li>
+        <li>Ideas to improve this page?</li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <script>
+    const vueMotionLink = "https://vuepacs.somersetft.nhs.uk/portal/WebLogin.aspx?ReturnUrl=%2fportal%2f";
+    const vueExplorerLink = "https://vuepacs.somersetft.nhs.uk/archive/Login.aspx?ReturnUrl=%2farchive%2f";
+
+    // MPH Ward & Clinic - Standard VUE
+    function openMPHWardLinks() {
+      const links = [
+        "https://patientrack.tst.nhs.uk/",
+        "https://eprportal.tst.nhs.uk/",
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
+        vueMotionLink,
+        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
+        "https://epro.somersetft.nhs.uk/Epro"
+      ];
+      links.forEach(url => window.open(url, '_blank'));
+    }
+
+    function openMPHClinicLinks() {
+      const links = [
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
+        "https://epr.tst.nhs.uk/MAXIMS_PROD/",
+        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
+        vueMotionLink,
+        "https://epro.somersetft.nhs.uk/Epro",
+        "https://www.swagcanceralliance.nhs.uk/protocols/",
+        "https://www.cancerresearchuk.org/health-professional/treatment-and-other-post-diagnosis-issues/consent-forms-for-sact-systemic-anti-cancer-therapy"
+      ];
+      links.forEach(url => window.open(url, '_blank'));
+    }
+
+    // YDH Ward & Clinic - Standard VUE
+    function openYDHWardLinks() {
+      const links = [
+        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
+        vueMotionLink,
+        "https://trakcare.ydh.nhs.uk/trakcare/",
+        "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx"
+      ];
+      links.forEach(url => window.open(url, '_blank'));
+    }
+
+    function openYDHClinicLinks() {
+      const links = [
+        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
+        "https://epro.somersetft.nhs.uk/Epro",
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
+        vueMotionLink,
+        "https://trakcare.ydh.nhs.uk/trakcare/",
+        "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx",
+        "https://www.swagcanceralliance.nhs.uk/protocols/",
+        "https://www.cancerresearchuk.org/health-professional/treatment-and-other-post-diagnosis-issues/consent-forms-for-sact-systemic-anti-cancer-therapy"
+      ];
+      links.forEach(url => window.open(url, '_blank'));
+    }
+
+    // MPH & YDH - VUE Explorer
+    function openMPHWardExplorerLinks() {
+      const links = [
+        "https://patientrack.tst.nhs.uk/",
+        "https://eprportal.tst.nhs.uk/",
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
+        vueExplorerLink,
+        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
+        "https://epro.somersetft.nhs.uk/Epro"
+      ];
+      links.forEach(url => window.open(url, '_blank'));
+    }
+
+    function openMPHClinicExplorerLinks() {
+      const links = [
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
+        "https://epr.tst.nhs.uk/MAXIMS_PROD/",
+        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
+        vueExplorerLink,
+        "https://epro.somersetft.nhs.uk/Epro",
+        "https://www.swagcanceralliance.nhs.uk/protocols/",
+        "https://www.cancerresearchuk.org/health-professional/treatment-and-other-post-diagnosis-issues/consent-forms-for-sact-systemic-anti-cancer-therapy"
+      ];
+      links.forEach(url => window.open(url, '_blank'));
+    }
+
+    function openYDHWardExplorerLinks() {
+      const links = [
+        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
+        vueExplorerLink,
+        "https://trakcare.ydh.nhs.uk/trakcare/",
+        "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx"
+      ];
+      links.forEach(url => window.open(url, '_blank'));
+    }
+
+    function openYDHClinicExplorerLinks() {
+      const links = [
+        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
+        "https://epro.somersetft.nhs.uk/Epro",
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
+        vueExplorerLink,
+        "https://trakcare.ydh.nhs.uk/trakcare/",
+        "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx",
+        "https://www.swagcanceralliance.nhs.uk/protocols/",
+        "https://www.cancerresearchuk.org/health-professional/treatment-and-other-post-diagnosis-issues/consent-forms-for-sact-systemic-anti-cancer-therapy"
+      ];
+      links.forEach(url => window.open(url, '_blank'));
+    }
+
+    // OSST Team
+    function openOSSTLinks() {
+      const links = [
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx",
+        "https://vuepacs.somersetft.nhs.uk/portal/WebLogin.aspx?ReturnUrl=%2fPortal%2f",
+        "https://sso.tst.nhs.uk/auth/realms/SIDER/protocol/openid-connect/auth?client_id=sider-prd-web&redirect_uri=https%3A%2F%2Fpyrusapps.blackpear.com%2Fhome%2Fbp-signin-callback.html&response_type=code&scope=openid%20profile&state=275dd7ccd2b54d3a8a24720b2d68c689&code_challenge=x5LqNU5VXj8usgCzutaa3o539FUzcQ_wYs8Hi2CG4wg&code_challenge_method=S256&response_mode=query",
+        "https://epr.tst.nhs.uk/MAXIMS_PROD/",
+        "https://epro.somersetft.nhs.uk/Epro"
+      ];
+      links.forEach(url => window.open(url, '_blank'));
+    }
+
+    // Care of the Elderly Team (COOT)
+    function openCOOTLinks() {
+      const links = [
+        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
+        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
+        "https://eprportal.tst.nhs.uk/",
+        "https://sso.tst.nhs.uk/auth/realms/SIDER/protocol/openid-connect/auth?client_id=sider-prd-web&redirect_uri=https%3A%2F%2Fpyrusapps.blackpear.com%2Fhome%2Fbp-signin-callback.html&response_type=code&scope=openid%20profile&state=275dd7ccd2b54d3a8a24720b2d68c689&code_challenge=x5LqNU5VXj8usgCzutaa3o539FUzcQ_wYs8Hi2CG4wg&code_challenge_method=S256&response-mode=query",
+        "https://epro.somersetft.nhs.uk/Epro",
+        "https://rio.somersetft.nhs.uk/rio/login/riologinsrc.asp?database=RIOLIVE",
+        "https://patientrack.tst.nhs.uk/",
+        vueMotionLink,
+        "https://epr.tst.nhs.uk/MAXIMS_PROD/"
+      ];
+
+      links.forEach(url => window.open(url, '_blank'));
+    }
+  </script>
 
 </body>
 </html>
