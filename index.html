@@ -153,36 +153,35 @@
 
   <div class="container">
 
-    <!-- LEFT: IT tips (UPDATED - Month 2) -->
+    <!-- LEFT: IT tips - June 2026 -->
     <aside class="sidebar">
-      <h2>IT Tips & Tricks – This Month</h2>
+      <h2>June 2026 IT Tips</h2>
+
+      <h3>MOSAIQ / CWS Tip</h3>
+      <ul>
+        <li><strong>Ctrl + A:</strong> in MOSAIQ CWS, use this to view all medications across all time.</li>
+      </ul>
 
       <h3>Work Smarter</h3>
       <ul>
-        <li><strong>Alt + Tab:</strong> switch quickly between ICE, EPR &amp; PACS</li>
-        <li><strong>Ctrl + Click:</strong> open links in new tabs</li>
-        <li><strong>Ctrl + Shift + V:</strong> paste text without formatting</li>
+        <li><strong>Ctrl + F:</strong> search within long pages, PDFs, protocols or clinic letters.</li>
+        <li><strong>Alt + Tab:</strong> switch quickly between EPR, ICE, PACS, MOSAIQ and Outlook.</li>
+        <li><strong>Ctrl + Shift + V:</strong> paste text without formatting.</li>
       </ul>
 
       <h3>Screenshots &amp; MDTs</h3>
       <ul>
-        <li><strong>Win + Shift + S:</strong> fast screenshots to clipboard</li>
-        <li>Paste directly into Outlook or Teams</li>
+        <li><strong>Win + Shift + S:</strong> capture only the relevant part of the screen.</li>
+        <li>Paste directly into Outlook, Teams or documents when appropriate.</li>
       </ul>
 
       <h3>Digital Safety</h3>
       <ul>
-        <li>Double-check patient name before actions</li>
-        <li><strong>Win + L:</strong> lock screen when stepping away</li>
+        <li><strong>Win + L:</strong> lock your screen when stepping away.</li>
+        <li>Check name, DOB and hospital number before actioning anything.</li>
       </ul>
 
-      <h3>Did You Know?</h3>
-      <ul>
-        <li>Browsers remember last sessions — close tabs at end of shift</li>
-        <li>Fewer tabs = faster systems &amp; fewer crashes</li>
-      </ul>
-
-      <small>Last updated: Jan 2026</small>
+      <small>Last updated: June 2026</small>
     </aside>
 
     <!-- MIDDLE: main launcher -->
@@ -230,9 +229,15 @@
       </div>
     </main>
 
-    <!-- RIGHT: Workshops & updates (UPDATED - Month 2) -->
+    <!-- RIGHT: Updates and support - June 2026 -->
     <aside class="sidebar">
       <h2>Updates &amp; Support</h2>
+
+      <h3>June Update</h3>
+      <ul>
+        <li><strong>TORTUS</strong> has been added to clinic launch buttons.</li>
+        <li>Use clinic buttons to open EPR, ICE, PACS, ePRO, TORTUS and key oncology resources together.</li>
+      </ul>
 
       <h3>Feature Spotlight</h3>
       <ul>
@@ -243,23 +248,23 @@
         </li>
       </ul>
 
-      <h3>Digital Support</h3>
+      <h3>Digital Housekeeping</h3>
       <ul>
-        <li>ICE &amp; EPR navigation tips</li>
-        <li>Workflow shortcuts</li>
-        <li>Reducing digital friction in clinic</li>
+        <li>Close unused patient-related tabs at the end of clinic or ward round.</li>
+        <li>Restart browser if systems become slow after multiple sessions.</li>
+        <li>Use bookmarks only for approved and current system links.</li>
       </ul>
-
-      <p style="margin: 8px 0 0;">
-        📧 <a href="mailto:nabeel.sheikh@somersetft.nhs.uk">nabeel.sheikh@somersetft.nhs.uk</a>
-      </p>
 
       <h3>Feedback Welcome</h3>
       <ul>
         <li>Missing a system?</li>
-        <li>Button not useful?</li>
-        <li>Ideas to improve this page?</li>
+        <li>Button not opening the right pages?</li>
+        <li>Ideas to improve this launcher?</li>
       </ul>
+
+      <p style="margin: 8px 0 0;">
+        <a href="mailto:nabeel.sheikh@somersetft.nhs.uk">nabeel.sheikh@somersetft.nhs.uk</a>
+      </p>
     </aside>
 
   </div>
@@ -267,6 +272,7 @@
   <script>
     const vueMotionLink = "https://vuepacs.somersetft.nhs.uk/portal/WebLogin.aspx?ReturnUrl=%2fportal%2f";
     const vueExplorerLink = "https://vuepacs.somersetft.nhs.uk/archive/Login.aspx?ReturnUrl=%2farchive%2f";
+    const tortusLink = "https://app.tortus.ai/login";
 
     // MPH Ward & Clinic - Standard VUE
     function openMPHWardLinks() {
@@ -288,6 +294,7 @@
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
         vueMotionLink,
         "https://epro.somersetft.nhs.uk/Epro",
+        tortusLink,
         "https://www.swagcanceralliance.nhs.uk/protocols/",
         "https://www.cancerresearchuk.org/health-professional/treatment-and-other-post-diagnosis-issues/consent-forms-for-sact-systemic-anti-cancer-therapy"
       ];
@@ -310,6 +317,7 @@
       const links = [
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
         "https://epro.somersetft.nhs.uk/Epro",
+        tortusLink,
         "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
         vueMotionLink,
         "https://trakcare.ydh.nhs.uk/trakcare/csp/logon.csp?LANGID=1",
@@ -323,7 +331,7 @@
     // MPH & YDH - VUE Explorer
     function openMPHWardExplorerLinks() {
       const links = [
-        "https://trakcare.ydh.nhs.uk/trakcare/csp/logon.csp?LANGID=1",
+        "https://patientrack.tst.nhs.uk/",
         "https://eprportal.tst.nhs.uk/",
         "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
         vueExplorerLink,
@@ -340,6 +348,7 @@
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
         vueExplorerLink,
         "https://epro.somersetft.nhs.uk/Epro",
+        tortusLink,
         "https://www.swagcanceralliance.nhs.uk/protocols/",
         "https://www.cancerresearchuk.org/health-professional/treatment-and-other-post-diagnosis-issues/consent-forms-for-sact-systemic-anti-cancer-therapy"
       ];
@@ -361,6 +370,7 @@
       const links = [
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
         "https://epro.somersetft.nhs.uk/Epro",
+        tortusLink,
         "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
         vueExplorerLink,
         "https://trakcare.ydh.nhs.uk/trakcare/csp/logon.csp?LANGID=1",
@@ -389,7 +399,7 @@
         "https://ordercomms.tst.nhs.uk/Review/login.aspx",
         "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
         "https://eprportal.tst.nhs.uk/",
-        "https://sso.tst.nhs.uk/auth/realms/SIDER/protocol/openid-connect/auth?client_id=sider-prd-web&redirect_uri=https%3A%2F%2Fpyrusapps.blackpear.com%2Fhome%2Fbp-signin-callback.html&response_type=code&scope=openid%20profile&state=275dd7ccd2b54d3a8a24720b2d68c689&code_challenge=x5LqNU5VXj8usgCzutaa3o539FUzcQ_wYs8Hi2CG4wg&code_challenge_method=S256&response-mode=query",
+        "https://sso.tst.nhs.uk/auth/realms/SIDER/protocol/openid-connect/auth?client_id=sider-prd-web&redirect_uri=https%3A%2F%2Fpyrusapps.blackpear.com%2Fhome%2Fbp-signin-callback.html&response_type=code&scope=openid%20profile&state=275dd7ccd2b54d3a8a24720b2d68c689&code_challenge=x5LqNU5VXj8usgCzutaa3o539FUzcQ_wYs8Hi2CG4wg&code_challenge_method=S256&response_mode=query",
         "https://epro.somersetft.nhs.uk/Epro",
         "https://rio.somersetft.nhs.uk/rio/login/riologinsrc.asp?database=RIOLIVE",
         "https://patientrack.tst.nhs.uk/",
@@ -403,4 +413,3 @@
 
 </body>
 </html>
-
