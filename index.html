@@ -11,14 +11,13 @@
       --aqua: #00a499;
       --green: #007f3b;
       --yellow: #ffeb3b;
-      --page: #f1f4f5;
+      --page: #f5f7f8;
       --surface: #ffffff;
       --soft: #f7f9fa;
       --text: #212b32;
       --muted: #4c6272;
       --border: #d8dde0;
       --radius: 6px;
-      --shadow: 0 2px 8px rgba(33, 43, 50, 0.08);
     }
 
     * {
@@ -29,7 +28,7 @@
       margin: 0;
       background: var(--page);
       color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
       line-height: 1.4;
     }
 
@@ -49,15 +48,15 @@
 
     .topbar {
       background: var(--blue);
-      border-bottom: 5px solid var(--aqua);
+      border-bottom: 3px solid var(--aqua);
       color: #ffffff;
     }
 
     .topbar-inner {
-      width: min(1180px, calc(100% - 32px));
-      min-height: 76px;
+      width: min(1120px, calc(100% - 32px));
+      min-height: 66px;
       margin: 0 auto;
-      padding: 13px 0;
+      padding: 11px 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -67,7 +66,7 @@
     .title-block h1 {
       margin: 0;
       color: #ffffff;
-      font-size: 24px;
+      font-size: 23px;
       line-height: 1.15;
     }
 
@@ -78,26 +77,26 @@
     }
 
     .report-link {
-      min-height: 40px;
-      padding: 8px 13px;
+      min-height: 36px;
+      padding: 7px 3px;
       display: inline-flex;
       align-items: center;
-      border: 2px solid #ffffff;
-      border-radius: var(--radius);
-      color: #ffffff;
-      font-weight: 700;
-      text-decoration: none;
+      border: 0;
+      color: #e8f3fb;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     .report-link:hover {
-      background: #ffffff;
-      color: var(--blue-dark);
+      color: #ffffff;
     }
 
     main {
-      width: min(1180px, calc(100% - 32px));
+      width: min(1120px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 22px 0 30px;
+      padding: 20px 0 28px;
     }
 
     h2,
@@ -116,16 +115,14 @@
     }
 
     .viewer-bar {
-      padding: 14px 16px;
+      padding: 11px 13px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      border: 1px solid #a9c9e6;
-      border-left: 5px solid var(--blue);
-      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      border-radius: 4px;
       background: var(--surface);
-      box-shadow: var(--shadow);
     }
 
     .viewer-copy {
@@ -146,7 +143,7 @@
       gap: 4px;
       padding: 4px;
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: 4px;
       background: var(--soft);
     }
 
@@ -180,7 +177,12 @@
     }
 
     .workflow-section {
-      margin-top: 25px;
+      margin-top: 24px;
+      padding: 14px;
+      --section-accent: var(--blue);
+      --section-ink: var(--blue-dark);
+      --section-tint: #eaf3fb;
+      background: var(--section-tint);
     }
 
     .section-heading {
@@ -189,19 +191,41 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 3px solid var(--blue);
+      border-bottom: 1px solid var(--border);
     }
 
-    .workflow-section.ydh .section-heading {
-      border-bottom-color: var(--aqua);
+    .section-heading h2 {
+      display: flex;
+      align-items: center;
+      gap: 9px;
     }
 
-    .workflow-section.teams .section-heading {
-      border-bottom-color: var(--green);
+    .section-heading h2::before {
+      width: 4px;
+      height: 19px;
+      border-radius: 2px;
+      background: var(--section-accent);
+      content: "";
+    }
+
+    .workflow-section.ydh {
+      --section-accent: var(--aqua);
+      --section-ink: #006b63;
+      --section-tint: #e7f5f3;
+    }
+
+    .workflow-section.teams {
+      --section-accent: var(--green);
+      --section-ink: #006b35;
+      --section-tint: #edf5ef;
     }
 
     .site-code {
-      color: var(--muted);
+      padding: 3px 7px;
+      border: 1px solid var(--section-accent);
+      border-radius: 3px;
+      background: var(--surface);
+      color: var(--section-ink);
       font-size: 12px;
       font-weight: 700;
     }
@@ -214,58 +238,97 @@
 
     .workflow-card {
       min-width: 0;
-      padding: 15px;
+      min-height: 186px;
+      padding: 0 16px 16px;
       display: grid;
-      gap: 12px;
+      grid-template-rows: auto 1fr auto;
+      gap: 13px;
+      overflow: hidden;
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-left: 4px solid var(--section-accent);
+      border-radius: 4px;
       background: var(--surface);
-      box-shadow: var(--shadow);
+      --card-heading: #f4f7fa;
+      --kind-color: var(--blue-dark);
+    }
+
+    .workflow-card.kind-clinic {
+      --card-heading: #f5f8f2;
+      --kind-color: #006b35;
+    }
+
+    .workflow-card.kind-team {
+      --card-heading: #f2f7f4;
+      --kind-color: var(--green);
     }
 
     .workflow-head {
+      margin: 0 -16px;
+      padding: 12px 15px;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 12px;
+      border-bottom: 1px solid var(--border);
+      background: var(--card-heading);
+    }
+
+    .workflow-title {
+      display: grid;
+      gap: 2px;
+    }
+
+    .workflow-kind {
+      color: var(--kind-color);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .workflow-head h3 {
+      color: var(--text);
+      font-size: 20px;
     }
 
     .tab-count {
       flex: 0 0 auto;
-      padding: 3px 7px;
-      border-radius: 999px;
-      background: var(--soft);
+      padding: 0;
       color: var(--muted);
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 600;
+      white-space: nowrap;
     }
 
     .system-list {
       margin: 0;
       padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
+      align-self: start;
       list-style: none;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
     }
 
     .system-list li {
-      padding: 4px 7px;
-      border: 1px solid #cbd5dc;
-      border-radius: 4px;
-      background: var(--soft);
-      color: #354550;
-      font-size: 12px;
+      display: inline;
+    }
+
+    .system-list li:not(:last-child)::after {
+      margin: 0 5px;
+      color: #8a9aa5;
+      content: "\2022";
     }
 
     .launch-button {
-      min-height: 42px;
-      padding: 8px 13px;
-      justify-self: end;
+      width: 100%;
+      min-height: 52px;
+      padding: 10px 16px;
+      justify-self: stretch;
       border: 2px solid var(--blue);
-      border-radius: var(--radius);
+      border-radius: 4px;
       background: var(--blue);
       color: #ffffff;
+      font-size: 16px;
       font-weight: 700;
     }
 
@@ -280,37 +343,38 @@
 
     .quick-links {
       margin-top: 10px;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
     }
 
     .quick-link {
+      flex: 1 1 135px;
       min-height: 42px;
-      padding: 8px 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--surface);
+      padding: 8px 12px;
+      display: grid;
+      align-content: center;
+      border: 0;
+      border-right: 1px solid var(--border);
       color: var(--blue-dark);
       font-size: 13px;
       font-weight: 700;
-      text-align: center;
+      text-align: left;
       text-decoration: none;
     }
 
     .quick-link:hover {
-      border-color: var(--blue);
       background: #f3f8fc;
     }
 
     .tips-bar {
       margin-top: 25px;
-      padding: 15px 16px;
-      border-top: 4px solid var(--aqua);
-      background: var(--surface);
+      padding: 14px 16px;
+      border-top: 3px solid var(--aqua);
+      background: #edf7f6;
     }
 
     .tips-bar h2 {
@@ -320,8 +384,8 @@
 
     .tips-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 7px 18px;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 8px 15px;
     }
 
     .tip {
@@ -344,7 +408,7 @@
       border-radius: 4px;
       background: var(--soft);
       color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
       font-size: 11px;
       font-weight: 700;
     }
@@ -369,7 +433,7 @@
       background: #fbe8e6;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 900px) {
       .viewer-bar {
         align-items: stretch;
         flex-direction: column;
@@ -379,12 +443,12 @@
         width: 100%;
       }
 
-      .quick-links {
+      .tips-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .tips-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .tip.edge {
+        grid-column: span 2;
       }
     }
 
@@ -430,6 +494,15 @@
       .viewer-buttons,
       .quick-links {
         grid-template-columns: 1fr;
+      }
+
+      .quick-links {
+        display: grid;
+      }
+
+      .quick-link {
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
       }
 
       .launch-button {
@@ -548,6 +621,17 @@
     ];
 
     const QUICK_LINKS = ["ice", "pacs", "epro", "ordercomms", "maxims", "tortus", "protocols", "consent"];
+    const OPEN_PRIORITY = {
+      trakcare: 0,
+      maxims: 1,
+      epro: 2,
+      ice: 3,
+      iceOsst: 3,
+      pacs: 4,
+      pacsStandard: 4,
+      pacsOsst: 4,
+      ordercomms: 5
+    };
     let selectedViewer = "standard";
 
     function getSystem(systemId) {
@@ -562,15 +646,31 @@
       return SYSTEMS[systemId];
     }
 
+    function orderedSystemIds(systemIds) {
+      return systemIds
+        .map((systemId, originalIndex) => ({
+          systemId,
+          originalIndex,
+          priority: OPEN_PRIORITY[systemId] ?? 100
+        }))
+        .sort((a, b) => a.priority - b.priority || a.originalIndex - b.originalIndex)
+        .map((item) => item.systemId);
+    }
+
     function workflowCard(workflow) {
-      const systems = workflow.systems
+      const systems = orderedSystemIds(workflow.systems)
         .map((systemId) => `<li>${getSystem(systemId).label}</li>`)
         .join("");
+      const kind = workflow.group === "team" ? "team" : workflow.id.endsWith("Ward") ? "ward" : "clinic";
+      const kindLabel = kind === "ward" ? "Inpatient" : kind === "clinic" ? "Outpatient" : "Specialist";
 
       return `
-        <article class="workflow-card">
+        <article class="workflow-card kind-${kind}">
           <div class="workflow-head">
-            <h3>${workflow.name}</h3>
+            <div class="workflow-title">
+              <span class="workflow-kind">${kindLabel}</span>
+              <h3>${workflow.name}</h3>
+            </div>
             <span class="tab-count">${workflow.systems.length} tabs</span>
           </div>
           <ul class="system-list" aria-label="Systems opened by ${workflow.name}">${systems}</ul>
@@ -602,8 +702,8 @@
       document.getElementById("quickLinks").innerHTML = QUICK_LINKS
         .map((systemId) => {
           const system = getSystem(systemId);
-          const extraLabel = systemId === "epro" ? " - Patient documents and letters" : "";
-          return `<a class="quick-link" href="${system.url}" target="_blank" rel="noopener noreferrer">${system.label}${extraLabel}</a>`;
+          const ariaLabel = systemId === "epro" ? ' aria-label="ePRO - Patient documents and letters"' : "";
+          return `<a class="quick-link" href="${system.url}" target="_blank" rel="noopener noreferrer"${ariaLabel}>${system.label}</a>`;
         })
         .join("");
     }
@@ -630,7 +730,7 @@
       status.hidden = false;
       status.textContent = `Opening ${workflow.systems.length} tabs. Allow pop-ups if any are blocked.`;
 
-      workflow.systems.forEach((systemId) => {
+      orderedSystemIds(workflow.systems).forEach((systemId) => {
         window.open(getSystem(systemId).url, "_blank", "noopener,noreferrer");
       });
 
