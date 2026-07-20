@@ -2,414 +2,947 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Oncology Multi Link Launcher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi Link Launcher</title>
+
   <style>
-    html, body { height: 100%; }
+    :root {
+      --blue: #005eb8;
+      --dark-blue: #003087;
+      --light-blue: #d8eefe;
+      --aqua: #00a499;
+      --green: #007f3b;
+      --yellow: #ffeb3b;
+      --page: #f0f4f5;
+      --surface: #ffffff;
+      --soft: #f7f9fa;
+      --ink: #212b32;
+      --muted: #4c6272;
+      --border: #d8dde0;
+      --shadow: 0 3px 12px rgba(33, 43, 50, 0.08);
+      --radius: 6px;
+    }
+
+    * { box-sizing: border-box; }
 
     body {
-      font-family: Arial, sans-serif;
-      padding: 20px 10px;
-      background-color: #f4f6f9;
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
     }
 
-    .container {
-      max-width: 90vw;
+    button, a { font: inherit; }
+    button { cursor: pointer; }
+    button:disabled { cursor: wait; opacity: 0.72; }
+    a { color: var(--blue); }
+
+    .service-header {
+      background: var(--blue);
+      color: #ffffff;
+      border-bottom: 5px solid var(--aqua);
+    }
+
+    .header-inner {
+      width: min(1280px, calc(100% - 32px));
+      min-height: 80px;
       margin: 0 auto;
+      padding: 14px 0;
       display: flex;
-      gap: 28px;
-      align-items: stretch;
-      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .sidebar {
-      flex: 0 0 260px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nhs-mark {
+      min-width: 92px;
+      min-height: 40px;
+      padding: 4px 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: #ffffff;
-      border-radius: 10px;
-      padding: 16px 18px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      font-size: 14px;
-      color: #333;
-      display: flex;
-      flex-direction: column;
+      color: var(--blue);
+      font-size: 26px;
+      font-weight: 700;
+      font-style: italic;
+      transform: skew(-7deg);
     }
 
-    .sidebar h2 {
-      font-size: 18px;
-      margin-bottom: 8px;
-      color: #004080;
+    .nhs-mark span { transform: skew(7deg); }
+
+    .service-name strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1.2;
     }
 
-    .sidebar h3 {
-      font-size: 16px;
-      margin-top: 10px;
-      margin-bottom: 4px;
-      color: #005a9c;
-    }
-
-    .sidebar ul {
-      margin: 0 0 8px 18px;
-      padding: 0;
-    }
-
-    .sidebar li {
-      margin-bottom: 6px;
-      line-height: 1.3;
-    }
-
-    .sidebar small {
-      font-size: 12px;
-      color: #777;
-      margin-top: auto;
-    }
-
-    .main-content {
-      flex: 1 1 auto;
-      min-width: 0;
-      text-align: center;
-    }
-
-    h1 {
-      color: #003366;
-      margin: 0 0 6px;
-      font-size: 24px;
-    }
-
-    .tagline {
-      margin-bottom: 12px;
-      color: #555;
-      font-size: 14px;
-    }
-
-    p {
-      margin-bottom: 10px;
-      color: #333;
-      font-size: 14px;
-    }
-
-    .note {
-      margin-bottom: 18px;
+    .service-name span {
+      display: block;
+      margin-top: 3px;
+      color: #e9f4fb;
       font-size: 13px;
-      color: #666;
     }
 
-    .section { margin-top: 18px; }
-
-    .section h2 {
-      color: #004080;
-      margin-bottom: 8px;
-      font-size: 18px;
+    .header-link, .feedback-link {
+      min-height: 42px;
+      padding: 9px 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #ffffff;
+      border-radius: var(--radius);
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: none;
     }
 
-    button {
-      padding: 12px 22px;
-      font-size: 16px;
-      background-color: #005a9c;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      margin: 8px;
-      box-shadow: 1px 1px 3px rgba(0,0,0,0.12);
+    .header-link:hover {
+      background: #ffffff;
+      color: var(--dark-blue);
+    }
+
+    .page {
+      width: min(1280px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 32px;
+    }
+
+    .intro {
+      padding-bottom: 20px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: end;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1, h2, h3, h4, p { margin-top: 0; }
+    h1, h2, h3, h4 { color: var(--dark-blue); }
+    h1 { margin-bottom: 7px; font-size: 30px; }
+    h2 { margin-bottom: 6px; font-size: 22px; }
+    h3 { margin-bottom: 4px; font-size: 19px; }
+    h4 { margin-bottom: 3px; font-size: 17px; }
+    p { margin-bottom: 0; color: var(--muted); }
+
+    .intro-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .meta-label {
+      min-height: 30px;
+      padding: 4px 9px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
       white-space: nowrap;
     }
 
-    button:hover { background-color: #007acc; }
-
-    .disclaimer {
-      margin-top: 18px;
-      font-size: 13px;
-      color: #555;
+    .meta-label.safe {
+      border-color: #a8d7ba;
+      background: #e8f5ed;
+      color: #005a30;
     }
 
-    .osst-section {
-      margin-top: 22px;
-      border-top: 1px solid #ccc;
-      padding-top: 14px;
+    .control-band {
+      margin-top: 20px;
+      padding: 16px 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+      border: 1px solid #a7c9e8;
+      border-left: 5px solid var(--blue);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .control-band p { font-size: 13px; }
+
+    .segmented-control {
+      min-width: 310px;
+      padding: 4px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 4px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--soft);
+    }
+
+    .viewer-button {
+      min-height: 42px;
+      padding: 8px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .viewer-button[aria-pressed="true"] {
+      border-color: var(--blue);
+      background: var(--blue);
+      color: #ffffff;
+    }
+
+    .launch-status {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-left: 5px solid #d8a700;
+      background: #fff9c4;
+      color: #443b00;
+      font-size: 14px;
+    }
+
+    .launch-status[hidden] { display: none; }
+    .section-block { margin-top: 30px; }
+
+    .section-heading {
+      margin-bottom: 14px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .section-heading p {
+      max-width: 640px;
+      font-size: 14px;
+      text-align: right;
+    }
+
+    .location-grid, .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .location-group {
+      min-width: 0;
+      padding-top: 13px;
+      border-top: 5px solid var(--blue);
+    }
+
+    .location-group.ydh { border-top-color: var(--aqua); }
+
+    .location-heading {
+      margin-bottom: 11px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .location-heading p { font-size: 13px; }
+
+    .location-code {
+      padding: 3px 7px;
+      border-radius: 4px;
+      background: var(--light-blue);
+      color: var(--dark-blue);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .ydh .location-code {
+      background: #d9f1ef;
+      color: #006b63;
+    }
+
+    .workflow-stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .workflow-card {
+      min-width: 0;
+      padding: 16px;
+      display: grid;
+      gap: 11px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .workflow-card.team-card {
+      border-top: 4px solid var(--green);
+    }
+
+    .workflow-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .workflow-head p { font-size: 13px; }
+
+    .tab-count {
+      min-height: 26px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .opens-label {
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .system-list {
+      margin: 0;
+      padding: 0;
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 22px;
+      gap: 6px;
+      list-style: none;
     }
 
-    .team-block { min-width: 200px; }
-
-    .team-block h2 {
-      color: #004080;
-      margin-bottom: 6px;
-      font-size: 16px;
+    .system-list li {
+      padding: 4px 7px;
+      border: 1px solid #c9d4dc;
+      border-radius: 4px;
+      background: var(--soft);
+      color: #354550;
+      font-size: 12px;
     }
 
-    @media (max-width: 1100px) {
-      .container {
-        flex-wrap: wrap;
-        max-width: 100%;
-      }
-      .main-content { order: -1; }
-      .sidebar { flex: 1 1 100%; }
+    .card-actions {
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card-actions small {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .launch-button {
+      min-height: 44px;
+      padding: 9px 16px;
+      border: 2px solid var(--blue);
+      border-radius: var(--radius);
+      background: var(--blue);
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .launch-button:hover {
+      border-color: var(--dark-blue);
+      background: var(--dark-blue);
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .quick-link {
+      min-height: 76px;
+      padding: 12px;
+      display: grid;
+      gap: 3px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .quick-link:hover {
+      border-color: var(--blue);
+      box-shadow: var(--shadow);
+    }
+
+    .quick-link strong {
+      color: var(--dark-blue);
+      font-size: 15px;
+    }
+
+    .quick-link span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .support-band {
+      margin-top: 30px;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      border-top: 5px solid var(--aqua);
+      background: var(--surface);
+    }
+
+    .support-item h3 { font-size: 16px; }
+
+    .support-item ul {
+      margin: 7px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .support-item li + li { margin-top: 5px; }
+    .support-item p { font-size: 13px; }
+
+    .feedback-link {
+      margin-top: 10px;
+      border-color: var(--green);
+      background: var(--green);
+    }
+
+    .feedback-link:hover {
+      border-color: #005a30;
+      background: #005a30;
+    }
+
+    footer {
+      padding-top: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    :focus-visible {
+      outline: 4px solid var(--yellow);
+      outline-offset: 2px;
+    }
+
+    noscript {
+      display: block;
+      margin-top: 20px;
+      padding: 14px;
+      border-left: 5px solid #d5281b;
+      background: #fbe8e6;
+      color: #4c1712;
+    }
+
+    @media (max-width: 980px) {
+      .intro, .control-band { grid-template-columns: 1fr; }
+      .intro-meta { justify-content: flex-start; }
+      .segmented-control { width: 100%; min-width: 0; }
+      .quick-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 760px) {
+      .header-inner, .page { width: calc(100% - 24px); }
+      .service-name strong { font-size: 18px; }
+      .service-name span { display: none; }
+      .location-grid, .team-grid, .support-band { grid-template-columns: 1fr; }
+      .section-heading { display: block; }
+      .section-heading p { margin-top: 5px; text-align: left; }
+    }
+
+    @media (max-width: 500px) {
+      .header-inner { display: block; }
+      .header-link { margin-top: 12px; }
+      .quick-grid { grid-template-columns: 1fr; }
+      .card-actions { display: grid; }
+      .launch-button { width: 100%; }
+      .segmented-control { grid-template-columns: 1fr; }
     }
   </style>
 </head>
+
 <body>
-
-  <div class="container">
-
-    <!-- LEFT: IT tips - June 2026 -->
-    <aside class="sidebar">
-      <h2>June 2026 IT Tips</h2>
-
-      <h3>MOSAIQ / CWS Tip</h3>
-      <ul>
-        <li><strong>Ctrl + A:</strong> in MOSAIQ CWS, use this to view all medications across all time.</li>
-      </ul>
-
-      <h3>Work Smarter</h3>
-      <ul>
-        <li><strong>Ctrl + F:</strong> search within long pages, PDFs, protocols or clinic letters.</li>
-        <li><strong>Alt + Tab:</strong> switch quickly between EPR, ICE, PACS, MOSAIQ and Outlook.</li>
-        <li><strong>Ctrl + Shift + V:</strong> paste text without formatting.</li>
-      </ul>
-
-      <h3>Screenshots &amp; MDTs</h3>
-      <ul>
-        <li><strong>Win + Shift + S:</strong> capture only the relevant part of the screen.</li>
-        <li>Paste directly into Outlook, Teams or documents when appropriate.</li>
-      </ul>
-
-      <h3>Digital Safety</h3>
-      <ul>
-        <li><strong>Win + L:</strong> lock your screen when stepping away.</li>
-        <li>Check name, DOB and hospital number before actioning anything.</li>
-      </ul>
-
-      <small>Last updated: June 2026</small>
-    </aside>
-
-    <!-- MIDDLE: main launcher -->
-    <main class="main-content">
-      <h1>Oncology Multi Link Launcher</h1>
-      <div class="tagline">
-        One-click access to core oncology systems across MPH and YDH.
-      </div>
-
-      <p>Select a button to launch all relevant systems for that setting:</p>
-      <p class="note">
-        VUE Explorer is an alternative to the standard VUE PACS viewer, with order search and a different interface.
-      </p>
-
-      <div class="section">
-        <h2>Standard VUE</h2>
-        <button onclick="openMPHWardLinks()">MPH Ward</button>
-        <button onclick="openMPHClinicLinks()">MPH Clinic</button>
-        <button onclick="openYDHWardLinks()">YDH Ward</button>
-        <button onclick="openYDHClinicLinks()">YDH Clinic</button>
-      </div>
-
-      <div class="section">
-        <h2>VUE Explorer</h2>
-        <button onclick="openMPHWardExplorerLinks()">MPH Ward</button>
-        <button onclick="openMPHClinicExplorerLinks()">MPH Clinic</button>
-        <button onclick="openYDHWardExplorerLinks()">YDH Ward</button>
-        <button onclick="openYDHClinicExplorerLinks()">YDH Clinic</button>
-      </div>
-
-      <div class="osst-section">
-        <div class="team-block">
-          <h2>OSST Team</h2>
-          <button onclick="openOSSTLinks()">Open OSST Portals</button>
-        </div>
-        <div class="team-block">
-          <h2>Care of the Elderly (COOT)</h2>
-          <button onclick="openCOOTLinks()">Open COOT Portals</button>
+  <header class="service-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="nhs-mark" aria-label="NHS"><span>NHS</span></div>
+        <div class="service-name">
+          <strong>Multi Link Launcher</strong>
+          <span>Nabeel Sheikh</span>
         </div>
       </div>
 
-      <div class="disclaimer">
-        Developed and managed by Nabeel Sheikh,
-        <a href="mailto:nabeel.sheikh@somersetft.nhs.uk">nabeel.sheikh@somersetft.nhs.uk</a>
+      <a
+        class="header-link"
+        href="mailto:nabeel.sheikh@somersetft.nhs.uk?subject=Multi%20Link%20Launcher%20issue&amp;body=Workflow%20or%20system%3A%0AWhat%20happened%3A%0AComputer%20or%20site%3A%0A"
+      >
+        Report a link issue
+      </a>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="intro">
+      <div>
+        <h1>Open the systems needed for your clinical setting</h1>
+        <p>Choose a PACS viewer, then select the ward, clinic, or team bundle you need.</p>
       </div>
-    </main>
 
-    <!-- RIGHT: Updates and support - June 2026 -->
-    <aside class="sidebar">
-      <h2>Updates &amp; Support</h2>
+      <div class="intro-meta">
+        <span class="meta-label safe">Links only: no patient data stored</span>
+        <span class="meta-label">Updated July 2026</span>
+      </div>
+    </section>
 
-      <h3>June Update</h3>
-      <ul>
-        <li><strong>TORTUS</strong> has been added to clinic launch buttons.</li>
-        <li>Use clinic buttons to open EPR, ICE, PACS, ePRO, TORTUS and key oncology resources together.</li>
-      </ul>
+    <section class="control-band">
+      <div>
+        <span class="eyebrow">Step 1</span>
+        <h2>Choose PACS viewer</h2>
+        <p>This selection applies to MPH and YDH ward and clinic buttons.</p>
+      </div>
 
-      <h3>Feature Spotlight</h3>
-      <ul>
-        <li>
-          <strong>VUE Explorer</strong><br>
-          Alternative PACS viewer with order-based search and cleaner layout.<br>
-          Useful for MDT prep and ward reviews.
-        </li>
-      </ul>
+      <div class="segmented-control" aria-label="PACS viewer">
+        <button class="viewer-button" data-viewer="standard" aria-pressed="true">
+          Standard VUE
+        </button>
+        <button class="viewer-button" data-viewer="explorer" aria-pressed="false">
+          VUE Explorer
+        </button>
+      </div>
+    </section>
 
-      <h3>Digital Housekeeping</h3>
-      <ul>
-        <li>Close unused patient-related tabs at the end of clinic or ward round.</li>
-        <li>Restart browser if systems become slow after multiple sessions.</li>
-        <li>Use bookmarks only for approved and current system links.</li>
-      </ul>
+    <div
+      id="launchStatus"
+      class="launch-status"
+      role="status"
+      aria-live="polite"
+      hidden
+    ></div>
 
-      <h3>Feedback Welcome</h3>
-      <ul>
-        <li>Missing a system?</li>
-        <li>Button not opening the right pages?</li>
-        <li>Ideas to improve this launcher?</li>
-      </ul>
+    <section class="section-block">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Step 2</span>
+          <h2>Ward and clinic</h2>
+        </div>
+        <p>The full tab list is shown before you launch a bundle.</p>
+      </div>
 
-      <p style="margin: 8px 0 0;">
-        <a href="mailto:nabeel.sheikh@somersetft.nhs.uk">nabeel.sheikh@somersetft.nhs.uk</a>
-      </p>
-    </aside>
+      <div class="location-grid">
+        <section class="location-group">
+          <div class="location-heading">
+            <div>
+              <h3>Musgrove Park Hospital</h3>
+              <p>Ward round and outpatient clinic bundles</p>
+            </div>
+            <span class="location-code">MPH</span>
+          </div>
+          <div class="workflow-stack" id="mphWorkflows"></div>
+        </section>
 
-  </div>
+        <section class="location-group ydh">
+          <div class="location-heading">
+            <div>
+              <h3>Yeovil District Hospital</h3>
+              <p>Ward round and outpatient clinic bundles</p>
+            </div>
+            <span class="location-code">YDH</span>
+          </div>
+          <div class="workflow-stack" id="ydhWorkflows"></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Specialist teams</span>
+          <h2>Team bundles</h2>
+        </div>
+      </div>
+      <div class="team-grid" id="teamWorkflows"></div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Individual systems</span>
+          <h2>Quick links</h2>
+        </div>
+        <p>Open one system when you do not need a full bundle.</p>
+      </div>
+      <div class="quick-grid" id="quickLinks"></div>
+    </section>
+
+    <section class="support-band">
+      <div class="support-item">
+        <h3>Before you start</h3>
+        <ul>
+          <li>Allow pop-ups if all tabs do not open.</li>
+          <li>Check patient name, DOB and hospital number in every system.</li>
+        </ul>
+      </div>
+
+      <div class="support-item">
+        <h3>At the end</h3>
+        <ul>
+          <li>Close patient-related tabs after clinic or ward round.</li>
+          <li>Lock the computer when stepping away.</li>
+        </ul>
+      </div>
+
+      <div class="support-item">
+        <h3>Something not right?</h3>
+        <p>Report the workflow, system and site so the link can be checked.</p>
+        <a
+          class="feedback-link"
+          href="mailto:nabeel.sheikh@somersetft.nhs.uk?subject=Multi%20Link%20Launcher%20feedback&amp;body=Workflow%20or%20system%3A%0AWhat%20happened%3A%0AComputer%20or%20site%3A%0A"
+        >
+          Send feedback
+        </a>
+      </div>
+    </section>
+
+    <noscript>
+      This launcher needs JavaScript enabled to create the workflow buttons.
+    </noscript>
+
+    <footer>
+      This page contains links only and does not collect patient-identifiable information.
+    </footer>
+  </main>
 
   <script>
-    const vueMotionLink = "https://vuepacs.somersetft.nhs.uk/portal/WebLogin.aspx?ReturnUrl=%2fportal%2f";
-    const vueExplorerLink = "https://vuepacs.somersetft.nhs.uk/archive/Login.aspx?ReturnUrl=%2farchive%2f";
-    const tortusLink = "https://app.tortus.ai/login";
+    const PACS = {
+      standard: {
+        label: "Standard VUE",
+        url: "https://vuepacs.somersetft.nhs.uk/portal/WebLogin.aspx?ReturnUrl=%2fportal%2f"
+      },
+      explorer: {
+        label: "VUE Explorer",
+        url: "https://vuepacs.somersetft.nhs.uk/archive/Login.aspx?ReturnUrl=%2farchive%2f"
+      }
+    };
 
-    // MPH Ward & Clinic - Standard VUE
-    function openMPHWardLinks() {
-      const links = [
-        "https://patientrack.tst.nhs.uk/",
-        "https://eprportal.tst.nhs.uk/",
-        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
-        vueMotionLink,
-        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
-        "https://epro.somersetft.nhs.uk/Epro"
-      ];
-      links.forEach(url => window.open(url, '_blank'));
+    const SYSTEMS = {
+      patientrack: {
+        label: "Patientrack",
+        description: "Observations",
+        url: "https://patientrack.tst.nhs.uk/"
+      },
+      eprPortal: {
+        label: "EPR Portal",
+        description: "Inpatient record",
+        url: "https://eprportal.tst.nhs.uk/"
+      },
+      ice: {
+        label: "ICE",
+        description: "Results and requesting",
+        url: "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true"
+      },
+      iceOsst: {
+        label: "ICE",
+        description: "Results and requesting",
+        url: "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx"
+      },
+      pacsOsst: {
+        label: "Standard VUE",
+        description: "PACS imaging",
+        url: "https://vuepacs.somersetft.nhs.uk/portal/WebLogin.aspx?ReturnUrl=%2fPortal%2f"
+      },
+      ordercomms: {
+        label: "Order Comms",
+        description: "Review and requests",
+        url: "https://ordercomms.tst.nhs.uk/Review/login.aspx"
+      },
+      epro: {
+        label: "ePRO",
+        description: "Oncology prescribing",
+        url: "https://epro.somersetft.nhs.uk/Epro"
+      },
+      maxims: {
+        label: "MAXIMS",
+        description: "Electronic patient record",
+        url: "https://epr.tst.nhs.uk/MAXIMS_PROD/"
+      },
+      tortus: {
+        label: "TORTUS",
+        description: "Clinical documentation support",
+        url: "https://app.tortus.ai/login"
+      },
+      protocols: {
+        label: "SWAG Protocols",
+        description: "Regional treatment protocols",
+        url: "https://www.swagcanceralliance.nhs.uk/protocols/"
+      },
+      consent: {
+        label: "SACT Consent",
+        description: "Cancer Research UK consent forms",
+        url: "https://www.cancerresearchuk.org/health-professional/treatment-and-other-post-diagnosis-issues/consent-forms-for-sact-systemic-anti-cancer-therapy"
+      },
+      trakcare: {
+        label: "TrakCare",
+        description: "YDH clinical record",
+        url: "https://trakcare.ydh.nhs.uk/trakcare/csp/logon.csp?LANGID=1"
+      },
+      ydhRecords: {
+        label: "YDH EDRM",
+        description: "Scanned medical records",
+        url: "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx"
+      },
+      sider: {
+        label: "SIDER",
+        description: "Team portal",
+        url: "https://sso.tst.nhs.uk/auth/realms/SIDER/protocol/openid-connect/auth?client_id=sider-prd-web&redirect_uri=https%3A%2F%2Fpyrusapps.blackpear.com%2Fhome%2Fbp-signin-callback.html&response_type=code&scope=openid%20profile&state=275dd7ccd2b54d3a8a24720b2d68c689&code_challenge=x5LqNU5VXj8usgCzutaa3o539FUzcQ_wYs8Hi2CG4wg&code_challenge_method=S256&response_mode=query"
+      },
+      rio: {
+        label: "Rio",
+        description: "Mental health record",
+        url: "https://rio.somersetft.nhs.uk/rio/login/riologinsrc.asp?database=RIOLIVE"
+      }
+    };
+
+    const WORKFLOWS = [
+      {
+        id: "mphWard",
+        group: "mph",
+        name: "Ward round",
+        context: "Core inpatient review systems",
+        systems: [
+          "patientrack", "eprPortal", "ice",
+          "pacs", "ordercomms", "epro"
+        ]
+      },
+      {
+        id: "mphClinic",
+        group: "mph",
+        name: "Clinic",
+        context: "Records, results, prescribing and oncology resources",
+        systems: [
+          "ice", "maxims", "ordercomms", "pacs",
+          "epro", "tortus", "protocols", "consent"
+        ]
+      },
+      {
+        id: "ydhWard",
+        group: "ydh",
+        name: "Ward round",
+        context: "Core YDH inpatient review systems",
+        systems: [
+          "ordercomms", "ice", "pacs", "trakcare", "ydhRecords"
+        ]
+      },
+      {
+        id: "ydhClinic",
+        group: "ydh",
+        name: "Clinic",
+        context: "YDH records, oncology prescribing and reference resources",
+        systems: [
+          "ordercomms", "epro", "tortus", "ice", "pacs",
+          "trakcare", "ydhRecords", "protocols", "consent"
+        ]
+      },
+      {
+        id: "osst",
+        group: "team",
+        name: "OSST Team",
+        context: "Results, imaging, team portal, EPR and prescribing",
+        systems: [
+          "iceOsst", "pacsOsst", "sider", "maxims", "epro"
+        ]
+      },
+      {
+        id: "coot",
+        group: "team",
+        name: "Care of the Elderly (COOT)",
+        context: "Ordering, records, observations, imaging and EPR",
+        systems: [
+          "ordercomms", "ice", "eprPortal", "sider", "epro",
+          "rio", "patientrack", "pacsStandard", "maxims"
+        ]
+      }
+    ];
+
+    const QUICK_LINKS = [
+      "ice", "pacs", "epro", "ordercomms",
+      "maxims", "tortus", "protocols", "consent"
+    ];
+
+    let selectedViewer = "standard";
+
+    function getSystem(systemId) {
+      if (systemId === "pacs") {
+        return {
+          label: PACS[selectedViewer].label,
+          description: "PACS imaging",
+          url: PACS[selectedViewer].url
+        };
+      }
+
+      if (systemId === "pacsStandard") {
+        return {
+          label: PACS.standard.label,
+          description: "PACS imaging",
+          url: PACS.standard.url
+        };
+      }
+
+      return SYSTEMS[systemId];
     }
 
-    function openMPHClinicLinks() {
-      const links = [
-        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
-        "https://epr.tst.nhs.uk/MAXIMS_PROD/",
-        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
-        vueMotionLink,
-        "https://epro.somersetft.nhs.uk/Epro",
-        tortusLink,
-        "https://www.swagcanceralliance.nhs.uk/protocols/",
-        "https://www.cancerresearchuk.org/health-professional/treatment-and-other-post-diagnosis-issues/consent-forms-for-sact-systemic-anti-cancer-therapy"
-      ];
-      links.forEach(url => window.open(url, '_blank'));
+    function workflowCard(workflow) {
+      const systems = workflow.systems
+        .map(systemId => `<li>${getSystem(systemId).label}</li>`)
+        .join("");
+
+      const teamClass = workflow.group === "team" ? " team-card" : "";
+      const prefix =
+        workflow.group === "mph" ? "MPH " :
+        workflow.group === "ydh" ? "YDH " : "";
+
+      return `
+        <article class="workflow-card${teamClass}">
+          <div class="workflow-head">
+            <div>
+              <h4>${workflow.name}</h4>
+              <p>${workflow.context}</p>
+            </div>
+            <span class="tab-count">${workflow.systems.length} tabs</span>
+          </div>
+
+          <div>
+            <span class="opens-label">Opens:</span>
+            <ul class="system-list">${systems}</ul>
+          </div>
+
+          <div class="card-actions">
+            <small>Opens each system in a new browser tab</small>
+            <button
+              class="launch-button"
+              type="button"
+              data-workflow="${workflow.id}"
+            >
+              Open ${prefix}${workflow.name}
+            </button>
+          </div>
+        </article>
+      `;
     }
 
-    // YDH Ward & Clinic - Standard VUE
-    function openYDHWardLinks() {
-      const links = [
-        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
-        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
-        vueMotionLink,
-        "https://trakcare.ydh.nhs.uk/trakcare/csp/logon.csp?LANGID=1",
-        "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx"
-      ];
-      links.forEach(url => window.open(url, '_blank'));
+    function renderWorkflows() {
+      const groups = {
+        mph: document.getElementById("mphWorkflows"),
+        ydh: document.getElementById("ydhWorkflows"),
+        team: document.getElementById("teamWorkflows")
+      };
+
+      Object.entries(groups).forEach(([group, element]) => {
+        element.innerHTML = WORKFLOWS
+          .filter(workflow => workflow.group === group)
+          .map(workflowCard)
+          .join("");
+      });
+
+      document.querySelectorAll("[data-workflow]").forEach(button => {
+        button.addEventListener("click", () => {
+          launchWorkflow(button.dataset.workflow, button);
+        });
+      });
     }
 
-    function openYDHClinicLinks() {
-      const links = [
-        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
-        "https://epro.somersetft.nhs.uk/Epro",
-        tortusLink,
-        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
-        vueMotionLink,
-        "https://trakcare.ydh.nhs.uk/trakcare/csp/logon.csp?LANGID=1",
-        "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx",
-        "https://www.swagcanceralliance.nhs.uk/protocols/",
-        "https://www.cancerresearchuk.org/health-professional/treatment-and-other-post-diagnosis-issues/consent-forms-for-sact-systemic-anti-cancer-therapy"
-      ];
-      links.forEach(url => window.open(url, '_blank'));
+    function renderQuickLinks() {
+      document.getElementById("quickLinks").innerHTML = QUICK_LINKS
+        .map(systemId => {
+          const system = getSystem(systemId);
+
+          return `
+            <a
+              class="quick-link"
+              href="${system.url}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>${system.label}</strong>
+              <span>${system.description}</span>
+            </a>
+          `;
+        })
+        .join("");
     }
 
-    // MPH & YDH - VUE Explorer
-    function openMPHWardExplorerLinks() {
-      const links = [
-        "https://patientrack.tst.nhs.uk/",
-        "https://eprportal.tst.nhs.uk/",
-        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
-        vueExplorerLink,
-        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
-        "https://epro.somersetft.nhs.uk/Epro"
-      ];
-      links.forEach(url => window.open(url, '_blank'));
+    function setViewer(viewer) {
+      selectedViewer = viewer;
+
+      document.querySelectorAll("[data-viewer]").forEach(button => {
+        button.setAttribute(
+          "aria-pressed",
+          String(button.dataset.viewer === viewer)
+        );
+      });
+
+      renderWorkflows();
+      renderQuickLinks();
     }
 
-    function openMPHClinicExplorerLinks() {
-      const links = [
-        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
-        "https://epr.tst.nhs.uk/MAXIMS_PROD/",
-        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
-        vueExplorerLink,
-        "https://epro.somersetft.nhs.uk/Epro",
-        tortusLink,
-        "https://www.swagcanceralliance.nhs.uk/protocols/",
-        "https://www.cancerresearchuk.org/health-professional/treatment-and-other-post-diagnosis-issues/consent-forms-for-sact-systemic-anti-cancer-therapy"
-      ];
-      links.forEach(url => window.open(url, '_blank'));
+    function launchWorkflow(workflowId, button) {
+      const workflow = WORKFLOWS.find(item => item.id === workflowId);
+      if (!workflow) return;
+
+      const status = document.getElementById("launchStatus");
+      const prefix =
+        workflow.group === "mph" ? "MPH " :
+        workflow.group === "ydh" ? "YDH " : "";
+
+      const originalText = button.textContent;
+
+      button.disabled = true;
+      button.textContent = "Opening tabs...";
+
+      status.hidden = false;
+      status.textContent =
+        `Opening ${workflow.systems.length} tabs for ` +
+        `${prefix}${workflow.name}. If fewer tabs appear, ` +
+        `allow pop-ups for this page and try again.`;
+
+      workflow.systems.forEach(systemId => {
+        const system = getSystem(systemId);
+        window.open(system.url, "_blank", "noopener,noreferrer");
+      });
+
+      window.setTimeout(() => {
+        button.disabled = false;
+        button.textContent = originalText;
+      }, 1200);
     }
 
-    function openYDHWardExplorerLinks() {
-      const links = [
-        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
-        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
-        vueExplorerLink,
-        "https://trakcare.ydh.nhs.uk/trakcare/csp/logon.csp?LANGID=1",
-        "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx"
-      ];
-      links.forEach(url => window.open(url, '_blank'));
-    }
+    document.querySelectorAll("[data-viewer]").forEach(button => {
+      button.addEventListener("click", () => {
+        setViewer(button.dataset.viewer);
+      });
+    });
 
-    function openYDHClinicExplorerLinks() {
-      const links = [
-        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
-        "https://epro.somersetft.nhs.uk/Epro",
-        tortusLink,
-        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
-        vueExplorerLink,
-        "https://trakcare.ydh.nhs.uk/trakcare/csp/logon.csp?LANGID=1",
-        "https://ydhedrm.ydh.nhs.uk/sites/MedicalRecords/SitePages/Home.aspx",
-        "https://www.swagcanceralliance.nhs.uk/protocols/",
-        "https://www.cancerresearchuk.org/health-professional/treatment-and-other-post-diagnosis-issues/consent-forms-for-sact-systemic-anti-cancer-therapy"
-      ];
-      links.forEach(url => window.open(url, '_blank'));
-    }
-
-    // OSST Team
-    function openOSSTLinks() {
-      const links = [
-        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx",
-        "https://vuepacs.somersetft.nhs.uk/portal/WebLogin.aspx?ReturnUrl=%2fPortal%2f",
-        "https://sso.tst.nhs.uk/auth/realms/SIDER/protocol/openid-connect/auth?client_id=sider-prd-web&redirect_uri=https%3A%2F%2Fpyrusapps.blackpear.com%2Fhome%2Fbp-signin-callback.html&response_type=code&scope=openid%20profile&state=275dd7ccd2b54d3a8a24720b2d68c689&code_challenge=x5LqNU5VXj8usgCzutaa3o539FUzcQ_wYs8Hi2CG4wg&code_challenge_method=S256&response_mode=query",
-        "https://epr.tst.nhs.uk/MAXIMS_PROD/",
-        "https://epro.somersetft.nhs.uk/Epro"
-      ];
-      links.forEach(url => window.open(url, '_blank'));
-    }
-
-    // Care of the Elderly Team (COOT)
-    function openCOOTLinks() {
-      const links = [
-        "https://ordercomms.tst.nhs.uk/Review/login.aspx",
-        "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx?suppress_automatic_logon=true",
-        "https://eprportal.tst.nhs.uk/",
-        "https://sso.tst.nhs.uk/auth/realms/SIDER/protocol/openid-connect/auth?client_id=sider-prd-web&redirect_uri=https%3A%2F%2Fpyrusapps.blackpear.com%2Fhome%2Fbp-signin-callback.html&response_type=code&scope=openid%20profile&state=275dd7ccd2b54d3a8a24720b2d68c689&code_challenge=x5LqNU5VXj8usgCzutaa3o539FUzcQ_wYs8Hi2CG4wg&code_challenge_method=S256&response_mode=query",
-        "https://epro.somersetft.nhs.uk/Epro",
-        "https://rio.somersetft.nhs.uk/rio/login/riologinsrc.asp?database=RIOLIVE",
-        "https://patientrack.tst.nhs.uk/",
-        vueMotionLink,
-        "https://epr.tst.nhs.uk/MAXIMS_PROD/"
-      ];
-
-      links.forEach(url => window.open(url, '_blank'));
-    }
+    renderWorkflows();
+    renderQuickLinks();
   </script>
-
 </body>
 </html>
