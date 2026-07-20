@@ -601,6 +601,7 @@
       pacsOsst: { label: "Standard VUE", url: "https://vuepacs.somersetft.nhs.uk/portal/WebLogin.aspx?ReturnUrl=%2fPortal%2f" },
       ordercomms: { label: "Order Comms", url: "https://ordercomms.tst.nhs.uk/Review/login.aspx" },
       epro: { label: "ePRO", description: "Patient documents and letters", url: "https://epro.somersetft.nhs.uk/Epro" },
+      epro: { label: "EPRO", description: "Patient documents and letters", url: "https://epro.somersetft.nhs.uk/Epro" },
       maxims: { label: "MAXIMS", url: "https://epr.tst.nhs.uk/MAXIMS_PROD/" },
       tortus: { label: "TORTUS", url: "https://app.tortus.ai/login" },
       protocols: { label: "SWAG Protocols", url: "https://www.swagcanceralliance.nhs.uk/protocols/" },
@@ -621,6 +622,7 @@
     ];
 
     const QUICK_LINKS = ["ice", "pacs", "epro", "ordercomms", "maxims", "tortus", "protocols", "consent"];
+    const QUICK_LINKS = ["maxims", "epro", "ice", "pacs", "ordercomms", "tortus", "protocols", "consent"];
     const OPEN_PRIORITY = {
       trakcare: 0,
       maxims: 1,
@@ -631,6 +633,15 @@
       pacsStandard: 4,
       pacsOsst: 4,
       ordercomms: 5
+      ordercomms: 5,
+      patientrack: 6,
+      eprPortal: 7,
+      ydhRecords: 8,
+      sider: 9,
+      rio: 10,
+      tortus: 11,
+      protocols: 12,
+      consent: 13
     };
     let selectedViewer = "standard";
 
@@ -703,6 +714,7 @@
         .map((systemId) => {
           const system = getSystem(systemId);
           const ariaLabel = systemId === "epro" ? ' aria-label="ePRO - Patient documents and letters"' : "";
+          const ariaLabel = systemId === "epro" ? ' aria-label="EPRO - Patient documents and letters"' : "";
           return `<a class="quick-link" href="${system.url}" target="_blank" rel="noopener noreferrer"${ariaLabel}>${system.label}</a>`;
         })
         .join("");
