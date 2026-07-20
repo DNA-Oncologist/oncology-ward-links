@@ -600,7 +600,6 @@
       iceOsst: { label: "ICE", url: "https://ice.somersetft.nhs.uk/icedesktop/dotnet/icedesktop/login.aspx" },
       pacsOsst: { label: "Standard VUE", url: "https://vuepacs.somersetft.nhs.uk/portal/WebLogin.aspx?ReturnUrl=%2fPortal%2f" },
       ordercomms: { label: "Order Comms", url: "https://ordercomms.tst.nhs.uk/Review/login.aspx" },
-      epro: { label: "ePRO", description: "Patient documents and letters", url: "https://epro.somersetft.nhs.uk/Epro" },
       epro: { label: "EPRO", description: "Patient documents and letters", url: "https://epro.somersetft.nhs.uk/Epro" },
       maxims: { label: "MAXIMS", url: "https://epr.tst.nhs.uk/MAXIMS_PROD/" },
       tortus: { label: "TORTUS", url: "https://app.tortus.ai/login" },
@@ -621,7 +620,6 @@
       { id: "coot", group: "team", name: "Care of the Elderly (COOT)", buttonLabel: "Open COOT", systems: ["ordercomms", "ice", "eprPortal", "sider", "epro", "rio", "patientrack", "pacsStandard", "maxims"] }
     ];
 
-    const QUICK_LINKS = ["ice", "pacs", "epro", "ordercomms", "maxims", "tortus", "protocols", "consent"];
     const QUICK_LINKS = ["maxims", "epro", "ice", "pacs", "ordercomms", "tortus", "protocols", "consent"];
     const OPEN_PRIORITY = {
       trakcare: 0,
@@ -632,7 +630,6 @@
       pacs: 4,
       pacsStandard: 4,
       pacsOsst: 4,
-      ordercomms: 5
       ordercomms: 5,
       patientrack: 6,
       eprPortal: 7,
@@ -713,7 +710,6 @@
       document.getElementById("quickLinks").innerHTML = QUICK_LINKS
         .map((systemId) => {
           const system = getSystem(systemId);
-          const ariaLabel = systemId === "epro" ? ' aria-label="ePRO - Patient documents and letters"' : "";
           const ariaLabel = systemId === "epro" ? ' aria-label="EPRO - Patient documents and letters"' : "";
           return `<a class="quick-link" href="${system.url}" target="_blank" rel="noopener noreferrer"${ariaLabel}>${system.label}</a>`;
         })
