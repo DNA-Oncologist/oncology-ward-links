@@ -7,15 +7,15 @@
 
   <style>
     :root {
-      --blue: #005eb8;
-      --dark-blue: #003087;
-      --light-blue: #d8eefe;
-      --aqua: #00a499;
-      --green: #007f3b;
-      --yellow: #ffeb3b;
+      --nhs-blue: #005eb8;
+      --nhs-dark-blue: #003087;
+      --nhs-light-blue: #d8eefe;
+      --nhs-aqua: #00a499;
+      --nhs-green: #007f3b;
+      --nhs-yellow: #ffeb3b;
       --page: #f0f4f5;
       --surface: #ffffff;
-      --soft: #f7f9fa;
+      --surface-soft: #f7f9fa;
       --ink: #212b32;
       --muted: #4c6272;
       --border: #d8dde0;
@@ -36,12 +36,12 @@
     button, a { font: inherit; }
     button { cursor: pointer; }
     button:disabled { cursor: wait; opacity: 0.72; }
-    a { color: var(--blue); }
+    a { color: var(--nhs-blue); }
 
     .service-header {
-      background: var(--blue);
+      background: var(--nhs-blue);
       color: #ffffff;
-      border-bottom: 5px solid var(--aqua);
+      border-bottom: 5px solid var(--nhs-aqua);
     }
 
     .header-inner {
@@ -54,29 +54,6 @@
       justify-content: space-between;
       gap: 24px;
     }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .nhs-mark {
-      min-width: 92px;
-      min-height: 40px;
-      padding: 4px 10px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #ffffff;
-      color: var(--blue);
-      font-size: 26px;
-      font-weight: 700;
-      font-style: italic;
-      transform: skew(-7deg);
-    }
-
-    .nhs-mark span { transform: skew(7deg); }
 
     .service-name strong {
       display: block;
@@ -91,7 +68,7 @@
       font-size: 13px;
     }
 
-    .header-link, .feedback-link {
+    .header-link {
       min-height: 42px;
       padding: 9px 14px;
       display: inline-flex;
@@ -106,7 +83,7 @@
 
     .header-link:hover {
       background: #ffffff;
-      color: var(--dark-blue);
+      color: var(--nhs-dark-blue);
     }
 
     .page {
@@ -125,11 +102,11 @@
     }
 
     h1, h2, h3, h4, p { margin-top: 0; }
-    h1, h2, h3, h4 { color: var(--dark-blue); }
+    h1, h2, h3, h4 { color: var(--nhs-dark-blue); }
     h1 { margin-bottom: 7px; font-size: 30px; }
     h2 { margin-bottom: 6px; font-size: 22px; }
     h3 { margin-bottom: 4px; font-size: 19px; }
-    h4 { margin-bottom: 3px; font-size: 17px; }
+    h4 { margin: 0; font-size: 17px; }
     p { margin-bottom: 0; color: var(--muted); }
 
     .intro-meta {
@@ -167,7 +144,7 @@
       gap: 24px;
       align-items: center;
       border: 1px solid #a7c9e8;
-      border-left: 5px solid var(--blue);
+      border-left: 5px solid var(--nhs-blue);
       border-radius: var(--radius);
       background: var(--surface);
       box-shadow: var(--shadow);
@@ -192,7 +169,7 @@
       gap: 4px;
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      background: var(--soft);
+      background: var(--surface-soft);
     }
 
     .viewer-button {
@@ -206,8 +183,8 @@
     }
 
     .viewer-button[aria-pressed="true"] {
-      border-color: var(--blue);
-      background: var(--blue);
+      border-color: var(--nhs-blue);
+      background: var(--nhs-blue);
       color: #ffffff;
     }
 
@@ -246,10 +223,12 @@
     .location-group {
       min-width: 0;
       padding-top: 13px;
-      border-top: 5px solid var(--blue);
+      border-top: 5px solid var(--nhs-blue);
     }
 
-    .location-group.ydh { border-top-color: var(--aqua); }
+    .location-group.ydh {
+      border-top-color: var(--nhs-aqua);
+    }
 
     .location-heading {
       margin-bottom: 11px;
@@ -264,8 +243,8 @@
     .location-code {
       padding: 3px 7px;
       border-radius: 4px;
-      background: var(--light-blue);
-      color: var(--dark-blue);
+      background: var(--nhs-light-blue);
+      color: var(--nhs-dark-blue);
       font-size: 12px;
       font-weight: 700;
     }
@@ -292,7 +271,7 @@
     }
 
     .workflow-card.team-card {
-      border-top: 4px solid var(--green);
+      border-top: 4px solid var(--nhs-green);
     }
 
     .workflow-head {
@@ -302,13 +281,11 @@
       gap: 14px;
     }
 
-    .workflow-head p { font-size: 13px; }
-
     .tab-count {
       min-height: 26px;
       padding: 3px 8px;
       border-radius: 999px;
-      background: var(--soft);
+      background: var(--surface-soft);
       color: var(--muted);
       font-size: 12px;
       font-weight: 700;
@@ -334,7 +311,7 @@
       padding: 4px 7px;
       border: 1px solid #c9d4dc;
       border-radius: 4px;
-      background: var(--soft);
+      background: var(--surface-soft);
       color: #354550;
       font-size: 12px;
     }
@@ -355,16 +332,16 @@
     .launch-button {
       min-height: 44px;
       padding: 9px 16px;
-      border: 2px solid var(--blue);
+      border: 2px solid var(--nhs-blue);
       border-radius: var(--radius);
-      background: var(--blue);
+      background: var(--nhs-blue);
       color: #ffffff;
       font-weight: 700;
     }
 
     .launch-button:hover {
-      border-color: var(--dark-blue);
-      background: var(--dark-blue);
+      border-color: var(--nhs-dark-blue);
+      background: var(--nhs-dark-blue);
     }
 
     .quick-grid {
@@ -386,12 +363,12 @@
     }
 
     .quick-link:hover {
-      border-color: var(--blue);
+      border-color: var(--nhs-blue);
       box-shadow: var(--shadow);
     }
 
     .quick-link strong {
-      color: var(--dark-blue);
+      color: var(--nhs-dark-blue);
       font-size: 15px;
     }
 
@@ -406,7 +383,7 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 20px;
-      border-top: 5px solid var(--aqua);
+      border-top: 5px solid var(--nhs-aqua);
       background: var(--surface);
     }
 
@@ -420,17 +397,38 @@
     }
 
     .support-item li + li { margin-top: 5px; }
-    .support-item p { font-size: 13px; }
 
-    .feedback-link {
-      margin-top: 10px;
-      border-color: var(--green);
-      background: var(--green);
+    .shortcut-list {
+      margin: 8px 0 0;
+      display: grid;
+      gap: 7px;
     }
 
-    .feedback-link:hover {
-      border-color: #005a30;
-      background: #005a30;
+    .shortcut-list div {
+      display: grid;
+      grid-template-columns: minmax(112px, auto) 1fr;
+      gap: 9px;
+      align-items: baseline;
+    }
+
+    .shortcut-list dt, .shortcut-list dd { margin: 0; }
+
+    .shortcut-list dd {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    kbd {
+      padding: 2px 6px;
+      display: inline-block;
+      border: 1px solid #b8c2c8;
+      border-bottom-width: 2px;
+      border-radius: 4px;
+      background: var(--surface-soft);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
     }
 
     footer {
@@ -441,7 +439,7 @@
     }
 
     :focus-visible {
-      outline: 4px solid var(--yellow);
+      outline: 4px solid var(--nhs-yellow);
       outline-offset: 2px;
     }
 
@@ -477,6 +475,7 @@
       .card-actions { display: grid; }
       .launch-button { width: 100%; }
       .segmented-control { grid-template-columns: 1fr; }
+      .shortcut-list div { grid-template-columns: 1fr; gap: 2px; }
     }
   </style>
 </head>
@@ -484,12 +483,9 @@
 <body>
   <header class="service-header">
     <div class="header-inner">
-      <div class="brand">
-        <div class="nhs-mark" aria-label="NHS"><span>NHS</span></div>
-        <div class="service-name">
-          <strong>Multi Link Launcher</strong>
-          <span>Nabeel Sheikh</span>
-        </div>
+      <div class="service-name">
+        <strong>Multi Link Launcher</strong>
+        <span>Nabeel Sheikh</span>
       </div>
 
       <a
@@ -505,7 +501,7 @@
     <section class="intro">
       <div>
         <h1>Open the systems needed for your clinical setting</h1>
-        <p>Choose a PACS viewer, then select the ward, clinic, or team bundle you need.</p>
+        <p>Choose a PACS viewer, then select the ward, clinic or team bundle you need.</p>
       </div>
 
       <div class="intro-meta">
@@ -594,32 +590,44 @@
       <div class="quick-grid" id="quickLinks"></div>
     </section>
 
-    <section class="support-band">
+    <section class="support-band" aria-label="July IT tips and digital safety">
       <div class="support-item">
-        <h3>Before you start</h3>
+        <h3>July IT tips</h3>
+        <dl class="shortcut-list">
+          <div>
+            <dt><kbd>Ctrl + Shift + V</kbd></dt>
+            <dd>Paste without formatting</dd>
+          </div>
+          <div>
+            <dt><kbd>Alt + Tab</kbd></dt>
+            <dd>Switch between open applications</dd>
+          </div>
+          <div>
+            <dt><kbd>Windows + D</kbd></dt>
+            <dd>Show or hide the desktop</dd>
+          </div>
+          <div>
+            <dt><kbd>Windows + L</kbd></dt>
+            <dd>Lock the computer</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="support-item">
+        <h3>Group tabs in Edge</h3>
         <ul>
-          <li>Allow pop-ups if all tabs do not open.</li>
-          <li>Check patient name, DOB and hospital number in every system.</li>
+          <li>Right-click a tab and select <strong>Add tab to new group</strong>.</li>
+          <li>Name and colour the group, then select its label to collapse or expand it.</li>
         </ul>
       </div>
 
       <div class="support-item">
-        <h3>At the end</h3>
+        <h3>Digital safety</h3>
         <ul>
+          <li>Check patient name, DOB and hospital number in each system.</li>
           <li>Close patient-related tabs after clinic or ward round.</li>
-          <li>Lock the computer when stepping away.</li>
+          <li>Allow pop-ups for this page if all tabs do not open.</li>
         </ul>
-      </div>
-
-      <div class="support-item">
-        <h3>Something not right?</h3>
-        <p>Report the workflow, system and site so the link can be checked.</p>
-        <a
-          class="feedback-link"
-          href="mailto:nabeel.sheikh@somersetft.nhs.uk?subject=Multi%20Link%20Launcher%20feedback&amp;body=Workflow%20or%20system%3A%0AWhat%20happened%3A%0AComputer%20or%20site%3A%0A"
-        >
-          Send feedback
-        </a>
       </div>
     </section>
 
@@ -677,7 +685,7 @@
       },
       epro: {
         label: "ePRO",
-        description: "Oncology prescribing",
+        description: "Patient documents and letters",
         url: "https://epro.somersetft.nhs.uk/Epro"
       },
       maxims: {
@@ -727,7 +735,6 @@
         id: "mphWard",
         group: "mph",
         name: "Ward round",
-        context: "Core inpatient review systems",
         systems: [
           "patientrack", "eprPortal", "ice",
           "pacs", "ordercomms", "epro"
@@ -737,7 +744,6 @@
         id: "mphClinic",
         group: "mph",
         name: "Clinic",
-        context: "Records, results, prescribing and oncology resources",
         systems: [
           "ice", "maxims", "ordercomms", "pacs",
           "epro", "tortus", "protocols", "consent"
@@ -747,7 +753,6 @@
         id: "ydhWard",
         group: "ydh",
         name: "Ward round",
-        context: "Core YDH inpatient review systems",
         systems: [
           "ordercomms", "ice", "pacs", "trakcare", "ydhRecords"
         ]
@@ -756,7 +761,6 @@
         id: "ydhClinic",
         group: "ydh",
         name: "Clinic",
-        context: "YDH records, oncology prescribing and reference resources",
         systems: [
           "ordercomms", "epro", "tortus", "ice", "pacs",
           "trakcare", "ydhRecords", "protocols", "consent"
@@ -766,7 +770,6 @@
         id: "osst",
         group: "team",
         name: "OSST Team",
-        context: "Results, imaging, team portal, EPR and prescribing",
         systems: [
           "iceOsst", "pacsOsst", "sider", "maxims", "epro"
         ]
@@ -775,7 +778,6 @@
         id: "coot",
         group: "team",
         name: "Care of the Elderly (COOT)",
-        context: "Ordering, records, observations, imaging and EPR",
         systems: [
           "ordercomms", "ice", "eprPortal", "sider", "epro",
           "rio", "patientrack", "pacsStandard", "maxims"
@@ -823,10 +825,7 @@
       return `
         <article class="workflow-card${teamClass}">
           <div class="workflow-head">
-            <div>
-              <h4>${workflow.name}</h4>
-              <p>${workflow.context}</p>
-            </div>
+            <h4>${workflow.name}</h4>
             <span class="tab-count">${workflow.systems.length} tabs</span>
           </div>
 
@@ -844,105 +843,4 @@
             >
               Open ${prefix}${workflow.name}
             </button>
-          </div>
-        </article>
-      `;
-    }
-
-    function renderWorkflows() {
-      const groups = {
-        mph: document.getElementById("mphWorkflows"),
-        ydh: document.getElementById("ydhWorkflows"),
-        team: document.getElementById("teamWorkflows")
-      };
-
-      Object.entries(groups).forEach(([group, element]) => {
-        element.innerHTML = WORKFLOWS
-          .filter(workflow => workflow.group === group)
-          .map(workflowCard)
-          .join("");
-      });
-
-      document.querySelectorAll("[data-workflow]").forEach(button => {
-        button.addEventListener("click", () => {
-          launchWorkflow(button.dataset.workflow, button);
-        });
-      });
-    }
-
-    function renderQuickLinks() {
-      document.getElementById("quickLinks").innerHTML = QUICK_LINKS
-        .map(systemId => {
-          const system = getSystem(systemId);
-
-          return `
-            <a
-              class="quick-link"
-              href="${system.url}"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <strong>${system.label}</strong>
-              <span>${system.description}</span>
-            </a>
-          `;
-        })
-        .join("");
-    }
-
-    function setViewer(viewer) {
-      selectedViewer = viewer;
-
-      document.querySelectorAll("[data-viewer]").forEach(button => {
-        button.setAttribute(
-          "aria-pressed",
-          String(button.dataset.viewer === viewer)
-        );
-      });
-
-      renderWorkflows();
-      renderQuickLinks();
-    }
-
-    function launchWorkflow(workflowId, button) {
-      const workflow = WORKFLOWS.find(item => item.id === workflowId);
-      if (!workflow) return;
-
-      const status = document.getElementById("launchStatus");
-      const prefix =
-        workflow.group === "mph" ? "MPH " :
-        workflow.group === "ydh" ? "YDH " : "";
-
-      const originalText = button.textContent;
-
-      button.disabled = true;
-      button.textContent = "Opening tabs...";
-
-      status.hidden = false;
-      status.textContent =
-        `Opening ${workflow.systems.length} tabs for ` +
-        `${prefix}${workflow.name}. If fewer tabs appear, ` +
-        `allow pop-ups for this page and try again.`;
-
-      workflow.systems.forEach(systemId => {
-        const system = getSystem(systemId);
-        window.open(system.url, "_blank", "noopener,noreferrer");
-      });
-
-      window.setTimeout(() => {
-        button.disabled = false;
-        button.textContent = originalText;
-      }, 1200);
-    }
-
-    document.querySelectorAll("[data-viewer]").forEach(button => {
-      button.addEventListener("click", () => {
-        setViewer(button.dataset.viewer);
-      });
-    });
-
-    renderWorkflows();
-    renderQuickLinks();
-  </script>
-</body>
-</html>
+          </
